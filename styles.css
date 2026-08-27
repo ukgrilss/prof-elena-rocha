@@ -1,8 +1,8 @@
-﻿/* ======================================
-   DESIGN SYSTEM â€” Kit Setembro Amarelo
+/* ======================================
+   DESIGN SYSTEM — Kit Setembro Amarelo
    ====================================== */
 
-/* Garante que fontes do Google nÃ£o bloqueiam a renderizaÃ§Ã£o */
+/* Garante que fontes do Google não bloqueiam a renderização */
 @font-face { font-display: swap; }
 
 :root {
@@ -316,7 +316,11 @@ a {
   font-weight: 600;
 }
 
-.price-main { display: flex; align-items: center; justify-content: center; gap: 4px;
+.price-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   line-height: 1;
 }
 
@@ -1146,120 +1150,184 @@ a {
 }
 
 /* ======================================
-   RESPONSIVE â€” MOBILE
+   RESPONSIVE — MOBILE
    ====================================== */
 
 @media (max-width: 768px) {
   .hero {
-    padding: 40px 0 40px;
+    padding: 24px 0 32px;
   }
-
   .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
-
+  .hero-text {
+    order: 1;
+    text-align: center;
+    padding-bottom: 24px;
+  }
   .hero-carousel {
     order: 2;
-    max-width: 360px;
-    margin: 0 auto;
+    max-width: 100%;
     width: 100%;
+    margin: 0;
   }
-
-  .hero-title {
-    font-size: 2rem;
-    text-align: center;
+  .carousel-wrapper {
+    border-radius: var(--radius-md);
   }
-
-  .hero-sub-title {
-    font-size: 0.95rem;
+  .carousel-slide img {
+    max-height: 300px;
+    object-fit: contain;
+    background: rgba(0,0,0,0.3);
   }
-
   .badge-pill {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
+    margin-bottom: 12px;
   }
-
+  .hero-title {
+    font-size: 1.75rem;
+    text-align: center;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .hero-sub-title {
+    font-size: 0.88rem;
+    display: block;
+    margin-top: 6px;
+  }
   .star-rating {
     justify-content: center;
+    margin: 10px 0;
   }
-
   .hero-bullets {
-    align-items: flex-start;
+    display: none;
   }
-
   .hero-price-box {
     width: 100%;
     text-align: center;
+    padding: 14px 16px;
+    margin-bottom: 16px;
   }
-
+  .price-from {
+    font-size: 0.85rem;
+  }
   .price-value {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
-
+  .price-currency,
+  .price-cents {
+    font-size: 1.3rem;
+  }
+  .price-note {
+    font-size: 0.72rem;
+  }
   .btn-cta {
     width: 100%;
     font-size: 1rem;
-    padding: 16px 24px;
+    padding: 18px 20px;
+    border-radius: 16px;
   }
-
-  .section-title {
-    font-size: 1.7rem;
+  .btn-cta.big-cta {
+    font-size: 1.05rem;
+    padding: 20px 24px;
+    max-width: 100%;
+    border-radius: 16px;
   }
-
-  .kits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .urgency-box {
+    margin-top: 12px;
   }
-
-  .bonus-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .offer-card {
-    padding: 32px 24px;
-  }
-
-  .offer-value {
-    font-size: 4.5rem;
-  }
-
-  .cause-card {
-    flex-direction: column;
-    padding: 32px 24px;
+  .urgency-text {
+    font-size: 0.78rem;
     text-align: center;
   }
-
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .section-desc {
+    font-size: 0.9rem;
+  }
+  .kits-section,
+  .bonus-section,
+  .proof-section,
+  .offer-section,
+  .guarantee-section,
+  .final-cta {
+    padding: 52px 0;
+  }
+  .kits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .kit-item {
+    padding: 14px 10px;
+    font-size: 0.82rem;
+  }
+  .kit-icon {
+    font-size: 1.6rem;
+  }
+  .bonus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .offer-card {
+    padding: 28px 20px;
+  }
+  .offer-value {
+    font-size: 4rem;
+  }
+  .offer-title {
+    font-size: 1.35rem;
+  }
+  .cause-card {
+    flex-direction: column;
+    padding: 28px 20px;
+    text-align: center;
+  }
   .guarantee-inner {
     flex-direction: column;
     text-align: center;
-    padding: 32px 24px;
+    padding: 28px 20px;
+    gap: 24px;
   }
-
   .guarantee-img-wrap {
-    width: 120px;
+    width: 110px;
     margin: 0 auto;
   }
-
   .final-cta h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
-
   .topbar {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }
 
 @media (max-width: 480px) {
-  .bonus-grid {
-    grid-template-columns: 1fr;
+  .hero-title {
+    font-size: 1.55rem;
   }
-
+  .bonus-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
   .kits-grid {
     grid-template-columns: 1fr 1fr;
   }
-
   .offer-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+  .offer-value {
+    font-size: 3.5rem;
+  }
+  .btn-cta {
+    font-size: 0.95rem;
+    padding: 16px 16px;
+  }
+  .topbar {
+    font-size: 0.7rem;
   }
 }
-
