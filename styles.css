@@ -1,8 +1,8 @@
-/* ======================================
-   DESIGN SYSTEM — Kit Setembro Amarelo
+﻿/* ======================================
+   DESIGN SYSTEM â€” Kit Setembro Amarelo
    ====================================== */
 
-/* Garante que fontes do Google não bloqueiam a renderização */
+/* Garante que fontes do Google nÃ£o bloqueiam a renderizaÃ§Ã£o */
 @font-face { font-display: swap; }
 
 :root {
@@ -316,10 +316,7 @@ a {
   font-weight: 600;
 }
 
-.price-main {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
+.price-main { display: flex; align-items: center; justify-content: center; gap: 4px;
   line-height: 1;
 }
 
@@ -1149,7 +1146,7 @@ a {
 }
 
 /* ======================================
-   RESPONSIVE — MOBILE
+   RESPONSIVE â€” MOBILE
    ====================================== */
 
 @media (max-width: 768px) {
@@ -1163,7 +1160,7 @@ a {
   }
 
   .hero-carousel {
-    order: -1;
+    order: 2;
     max-width: 360px;
     margin: 0 auto;
     width: 100%;
@@ -1265,3 +1262,4 @@ a {
     font-size: 1.4rem;
   }
 }
+
