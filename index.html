@@ -65,25 +65,7 @@
 
 
 
-<style>
-  .upsell-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:99999;align-items:center;justify-content:center;padding:12px;opacity:0;transition:opacity .25s ease}
-  .upsell-modal-overlay.active{display:flex;opacity:1}
-  .premium-modal{background:#111;border-radius:16px;max-width:380px;width:100%;padding:20px 18px;position:relative;text-align:center;border:2px solid #F5C518}
-  .upsell-close{position:absolute;top:10px;right:14px;color:#777;font-size:1.5rem;cursor:pointer;line-height:1}
-  .upsell-close:hover{color:#fff}
-  .premium-badge{display:inline-block;background:#F5C518;color:#000;padding:4px 12px;border-radius:50px;font-size:0.7rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;letter-spacing:0.5px}
-  .premium-title{color:#fff;font-size:1.3rem;font-family:'Outfit',sans-serif;font-weight:900;margin-bottom:4px;line-height:1.15}
-  .premium-highlight{color:#F5C518;font-size:1.1rem;font-weight:900;margin-bottom:8px}
-  .premium-desc{color:#aaa;font-size:0.85rem;margin-bottom:14px;line-height:1.35}
-  .premium-desc strong{color:#F5C518}
-  .plan-list{background:#1a1a1a;border-radius:10px;padding:10px 14px;list-style:none;margin:0 auto 16px;text-align:left;border:1px solid #333}
-  .plan-list li{color:#ddd;font-size:0.82rem;padding:4px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid #222}
-  .plan-list li:last-child{border-bottom:none}
-  .plan-list li .check{color:#F5C518;font-size:0.9rem;line-height:1.4;flex-shrink:0}
-  .btn-upsell-accept{display:block;width:100%;background:linear-gradient(135deg,#F5C518 0%,#E99413 100%);color:#000;font-size:1rem;font-weight:900;padding:14px;border-radius:10px;text-decoration:none;margin-bottom:10px;box-shadow:0 4px 12px rgba(245,197,24,0.3)}
-  .btn-upsell-decline{display:block;color:#666;font-size:0.82rem;text-decoration:underline;cursor:pointer;padding:4px}
-  .btn-upsell-decline:hover{color:#aaa}
-</style>
+
 </head>
 
 
@@ -91,7 +73,7 @@
 
   <!-- ========== STICKY TOP BAR ========== -->
   <div class="topbar" id="topbar">
-    <span>OFERTA RELÂMPAGO VÁLIDA SOMENTE ATÉ HOJE (<strong id="dynamic-date"></strong>) — Apenas R$ 10,00 — <a href="#" onclick="openPopup(event)" id="topbar-cta" style="color: #FFF; text-decoration: underline;">Garantir Agora &rarr;</a></span>
+    <span>OFERTA RELÂMPAGO VÁLIDA SOMENTE ATÉ HOJE (<strong id="dynamic-date"></strong>) — Apenas R$ 10,00 — <a href="https://pay.wiapy.com/du7zZ5ks4EsE" id="topbar-cta" style="color: #FFF; text-decoration: underline;">Garantir Agora &rarr;</a></span>
   </div>
   <script>
     (function(){
@@ -145,7 +127,7 @@
             <p class="price-note">💳 Pagamento único — sem mensalidade</p>
           </div>
 
-          <a href="#" onclick="openPopup(event)" class="btn-cta pulse" id="hero-btn">
+          <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse" id="hero-btn">
             👉 QUERO MEU KIT AGORA!
           </a>
 
@@ -248,7 +230,7 @@
       </div>
 
       <div class="text-center" data-aos="fade-up">
-        <a href="#" onclick="openPopup(event)" class="btn-cta pulse" id="kits-btn">
+        <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse" id="kits-btn">
           👉 COMPRAR E RECEBER AGORA!
         </a>
       </div>
@@ -387,7 +369,7 @@
           <p class="scarcity-text" id="cityCount">🔥 <span class="city-num">319</span> pessoas já garantiram o kit</p>
         </div>
 
-        <a href="#" onclick="openPopup(event)" class="btn-cta pulse big-cta" id="offer-btn">
+        <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse big-cta" id="offer-btn">
           👉 COMPRAR E RECEBER AGORA!
         </a>
 
@@ -435,7 +417,7 @@
     <div class="container">
       <h2 data-aos="fade-up">Não perca essa oportunidade! 🚀</h2>
       <p data-aos="fade-up">Setembro Amarelo está chegando — garanta seu kit agora com <strong>89% de desconto</strong>.</p>
-      <a href="#" onclick="openPopup(event)" class="btn-cta pulse big-cta" id="final-btn" data-aos="fade-up">
+      <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse big-cta" id="final-btn" data-aos="fade-up">
         👉 QUERO MEU KIT POR R$ 10,00!
       </a>
     </div>
@@ -460,49 +442,7 @@
 
 
 
-<!-- UPSELL MODAL -->
-<div class="upsell-modal-overlay" id="upsellModal">
-  <div class="upsell-modal-content premium-modal">
-    <span class="upsell-close" onclick="closePopup()">&times;</span>
-    
-    <span class="premium-badge">🚀 ESPERE! VOCÊ PODE LEVAR MUITO MAIS...</span>
-    <h2 class="premium-title">DESBLOQUEIE O PACK PREMIUM</h2>
-    <div class="premium-highlight">+500 MATERIAIS EXCLUSIVOS</div>
-    <p class="premium-desc">Por apenas <strong>R$ 19,90</strong>, tenha acesso a uma coleção Premium muito mais completa para criar sua campanha de Setembro Amarelo.</p>
-    
-    <ul class="plan-list">
-      <li><span class="check">✓</span> <strong>Mais de 500 materiais exclusivos</strong></li>
-      <li><span class="check">✓</span> Painéis e decorações</li>
-      <li><span class="check">✓</span> Lembrancinhas criativas</li>
-      <li><span class="check">✓</span> Cartões com mensagens</li>
-      <li><span class="check">✓</span> Atividades e materiais educativos</li>
-      <li><span class="check">✓</span> Ilustrações e elementos decorativos</li>
-      <li><span class="check">✓</span> Cartazes e adesivos</li>
-      <li><span class="check">✓</span> Arquivos prontos para imprimir</li>
-      <li><span class="check">✓</span> Muito mais variedade de materiais</li>
-    </ul>
 
-    <a href="https://pay.wiapy.com/S4QEYZgEBhze" class="btn-upsell-accept pulse" onclick="setChosen()">SIM! QUERO O PACK PREMIUM POR R$ 19,90</a>
-    <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-upsell-decline" onclick="setChosen()">Não, quero continuar apenas com o kit básico de R$ 10,00</a>
-  </div>
-</div>
-
-<script>
-  function openPopup(e) {
-    if(e) e.preventDefault();
-    if(sessionStorage.getItem('popupShown')) {
-      window.location.href = "https://pay.wiapy.com/du7zZ5ks4EsE";
-      return;
-    }
-    document.getElementById('upsellModal').classList.add('active');
-  }
-  function closePopup() {
-    document.getElementById('upsellModal').classList.remove('active');
-  }
-  function setChosen() {
-    sessionStorage.setItem('popupShown', 'true');
-  }
-</script>
 </body>
 
 
