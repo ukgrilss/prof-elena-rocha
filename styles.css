@@ -1163,15 +1163,33 @@ a {
     gap: 0;
   }
   .hero-text {
+    display: contents;
+  }
+  .badge-pill, .hero-title, .hero-sub-title, .star-rating {
     order: 1;
     text-align: center;
-    padding-bottom: 24px;
   }
   .hero-carousel {
     order: 2;
     max-width: 100%;
     width: 100%;
-    margin: 0;
+    margin: 15px 0;
+  }
+  .hero-price-box {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    padding: 15px 10px 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    background: transparent;
+  }
+  .btn-cta, .btn-cta.big-cta {
+    order: 4;
+  }
+  .urgency-box {
+    order: 5;
+    margin-bottom: 24px;
   }
   .carousel-wrapper {
     border-radius: var(--radius-md);
@@ -1179,7 +1197,7 @@ a {
   .carousel-slide img {
     max-height: 300px;
     object-fit: contain;
-    background: rgba(0,0,0,0.3);
+    background: transparent;
   }
   .badge-pill {
     display: inline-flex;

@@ -66,148 +66,23 @@
 
 
 <style>
-  .upsell-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 99999;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    overflow-y: auto;
-  }
-  .upsell-modal-overlay.active {
-    display: flex;
-    opacity: 1;
-  }
-  .premium-modal {
-    background: #111;
-    border: 2px solid #F5C518;
-    border-radius: 20px;
-    max-width: 550px;
-    width: 100%;
-    padding: 35px 25px;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(245, 197, 24, 0.2);
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-    margin: auto;
-    text-align: center;
-  }
-  .upsell-modal-overlay.active .premium-modal {
-    transform: scale(1);
-  }
-  .upsell-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    color: #888;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .upsell-close:hover { color: #FFF; }
-  
-  .premium-badge {
-    display: inline-block;
-    background: #222;
-    color: #F5C518;
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    border: 1px solid #444;
-  }
-  .premium-title {
-    color: #FFF;
-    font-size: 2rem;
-    font-family: 'Outfit', sans-serif;
-    margin-bottom: 10px;
-    line-height: 1.1;
-  }
-  .premium-highlight {
-    color: #F5C518;
-    font-size: 1.8rem;
-    font-weight: 900;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 10px rgba(245, 197, 24, 0.3);
-  }
-  .premium-desc {
-    color: #CCC;
-    font-size: 1.05rem;
-    margin-bottom: 25px;
-    line-height: 1.4;
-  }
-  
-  .plan-list {
-    background: #1A1A1A;
-    border-radius: 12px;
-    padding: 20px;
-    list-style: none;
-    margin: 0 auto 25px auto;
-    text-align: left;
-    display: inline-block;
-    width: 100%;
-    border: 1px solid #333;
-  }
-  .plan-list li {
-    color: #DDD;
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.4;
-  }
-  .plan-list li:last-child {
-    margin-bottom: 0;
-  }
-  .plan-list li .check {
-    color: #F5C518;
-    font-weight: bold;
-    font-size: 1.1rem;
-    line-height: 1;
-  }
-  
-  .btn-upsell-accept {
-    display: inline-block;
-    width: 100%;
-    background: linear-gradient(135deg, #F5C518 0%, #E99413 100%);
-    color: #000;
-    font-size: 1.1rem;
-    font-weight: 900;
-    padding: 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    margin-bottom: 15px;
-    box-shadow: 0 6px 20px rgba(245, 197, 24, 0.4);
-  }
-  .btn-upsell-decline {
-    display: inline-block;
-    color: #777;
-    font-size: 0.95rem;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s;
-  }
-  .btn-upsell-decline:hover {
-    color: #FFF;
-  }
-  
-  @media (max-width: 768px) {
-    .premium-title { font-size: 1.6rem; }
-    .premium-highlight { font-size: 1.4rem; }
-    .premium-desc { font-size: 0.95rem; }
-    .btn-upsell-accept { font-size: 1rem; padding: 16px; }
-    .premium-modal { padding: 25px 15px; }
-  }
+  .upsell-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:99999;align-items:center;justify-content:center;padding:12px;opacity:0;transition:opacity .25s ease}
+  .upsell-modal-overlay.active{display:flex;opacity:1}
+  .premium-modal{background:#111;border-radius:16px;max-width:380px;width:100%;padding:20px 18px;position:relative;text-align:center;border:2px solid #F5C518}
+  .upsell-close{position:absolute;top:10px;right:14px;color:#777;font-size:1.5rem;cursor:pointer;line-height:1}
+  .upsell-close:hover{color:#fff}
+  .premium-badge{display:inline-block;background:#F5C518;color:#000;padding:4px 12px;border-radius:50px;font-size:0.7rem;font-weight:800;text-transform:uppercase;margin-bottom:10px;letter-spacing:0.5px}
+  .premium-title{color:#fff;font-size:1.3rem;font-family:'Outfit',sans-serif;font-weight:900;margin-bottom:4px;line-height:1.15}
+  .premium-highlight{color:#F5C518;font-size:1.1rem;font-weight:900;margin-bottom:8px}
+  .premium-desc{color:#aaa;font-size:0.85rem;margin-bottom:14px;line-height:1.35}
+  .premium-desc strong{color:#F5C518}
+  .plan-list{background:#1a1a1a;border-radius:10px;padding:10px 14px;list-style:none;margin:0 auto 16px;text-align:left;border:1px solid #333}
+  .plan-list li{color:#ddd;font-size:0.82rem;padding:4px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid #222}
+  .plan-list li:last-child{border-bottom:none}
+  .plan-list li .check{color:#F5C518;font-size:0.9rem;line-height:1.4;flex-shrink:0}
+  .btn-upsell-accept{display:block;width:100%;background:linear-gradient(135deg,#F5C518 0%,#E99413 100%);color:#000;font-size:1rem;font-weight:900;padding:14px;border-radius:10px;text-decoration:none;margin-bottom:10px;box-shadow:0 4px 12px rgba(245,197,24,0.3)}
+  .btn-upsell-decline{display:block;color:#666;font-size:0.82rem;text-decoration:underline;cursor:pointer;padding:4px}
+  .btn-upsell-decline:hover{color:#aaa}
 </style>
 </head>
 
@@ -216,9 +91,19 @@
 
   <!-- ========== STICKY TOP BAR ========== -->
   <div class="topbar" id="topbar">
-    <span class="topbar-icon">⚡</span>
-    <span>OFERTA RELÂMPAGO: <strong>89% OFF</strong> — Apenas R$&nbsp;10,00 — <a href="#" onclick="openPopup(event)" id="topbar-cta">Garantir Agora →</a></span>
+    <span>OFERTA RELÂMPAGO VÁLIDA SOMENTE ATÉ HOJE (<strong id="dynamic-date"></strong>) — Apenas R$ 10,00 — <a href="#" onclick="openPopup(event)" id="topbar-cta" style="color: #FFF; text-decoration: underline;">Garantir Agora &rarr;</a></span>
   </div>
+  <script>
+    (function(){
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+      var yyyy = today.getFullYear();
+      var dateStr = dd + '/' + mm + '/' + yyyy;
+      var el = document.getElementById('dynamic-date');
+      if(el) el.innerText = dateStr;
+    })();
+  </script>
 
   <!-- ========== HERO SECTION ========== -->
   <section class="hero" id="hero">
@@ -583,7 +468,7 @@
     <span class="premium-badge">🚀 ESPERE! VOCÊ PODE LEVAR MUITO MAIS...</span>
     <h2 class="premium-title">DESBLOQUEIE O PACK PREMIUM</h2>
     <div class="premium-highlight">+500 MATERIAIS EXCLUSIVOS</div>
-    <p class="premium-desc">Por apenas <strong>R$ 29,90</strong>, tenha acesso a uma coleção Premium muito mais completa para criar sua campanha de Setembro Amarelo.</p>
+    <p class="premium-desc">Por apenas <strong>R$ 19,90</strong>, tenha acesso a uma coleção Premium muito mais completa para criar sua campanha de Setembro Amarelo.</p>
     
     <ul class="plan-list">
       <li><span class="check">✓</span> <strong>Mais de 500 materiais exclusivos</strong></li>
@@ -597,7 +482,7 @@
       <li><span class="check">✓</span> Muito mais variedade de materiais</li>
     </ul>
 
-    <a href="https://pay.wiapy.com/S4QEYZgEBhze" class="btn-upsell-accept pulse" onclick="setChosen()">SIM! QUERO O PACK PREMIUM POR R$ 29,90</a>
+    <a href="https://pay.wiapy.com/S4QEYZgEBhze" class="btn-upsell-accept pulse" onclick="setChosen()">SIM! QUERO O PACK PREMIUM POR R$ 19,90</a>
     <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-upsell-decline" onclick="setChosen()">Não, quero continuar apenas com o kit básico de R$ 10,00</a>
   </div>
 </div>
