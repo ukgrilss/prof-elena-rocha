@@ -66,15 +66,51 @@
 
 
 
+
+<style>
+  html, body { overflow-x: hidden !important; max-width: 100% !important; }
+  * { box-sizing: border-box; }
+  /* ── WYG ── */
+  .wyg-block { margin: 16px 0; text-align: center; display: none; max-width: 100%; }
+  .wyg-title { color: #aaa; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+  .wyg-list { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .wyg-card { background: rgba(245,197,24,.07); border: 1px solid rgba(245,197,24,.2); border-radius: 12px; overflow: hidden; width: 100%; }
+  .wyg-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  .wyg-card span { display: block; color: #e0d9c8; font-size: .9rem; font-weight: 700; padding: 8px 12px 10px; }
+  /* ── BONUS INLINE ── */
+  .bonus-inline-block { margin: 16px 0; text-align: center; display: none; max-width: 100%; }
+  .bonus-inline-title { color: #fff; font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 800; margin: 8px 0 4px; }
+  .bonus-inline-desc { color: #aaa; font-size: .8rem; margin-bottom: 12px; }
+  .bonus-inline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .wyg-block, .bonus-inline-block { display: block; }
+    .hero-inner {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+    }
+    .hero-text { order: 1; text-align: center; width: 100%; max-width: 100%; }
+    .hero-carousel { order: 2; max-width: 100% !important; width: 100% !important; margin: 14px 0; }
+    .wyg-block { order: 3; width: 100%; }
+    .bonus-inline-block { order: 4; width: 100%; }
+    .hero-price-box { order: 5; width: 100%; text-align: center; }
+    .hero-bullets { display: none; }
+    .hero-title { font-size: 1.75rem; }
+    .btn-cta { width: 100%; }
+    .section-title { font-size: 1.6rem; }
+    .bonus-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 
 
 <body>
 
   <!-- ========== STICKY TOP BAR ========== -->
-  <div class="topbar" id="topbar">
-    <span>OFERTA RELÂMPAGO VÁLIDA SOMENTE ATÉ HOJE (<strong id="dynamic-date"></strong>) — Apenas R$ 10,00 — <a href="https://pay.wiapy.com/du7zZ5ks4EsE" id="topbar-cta" style="color: #FFF; text-decoration: underline;">Garantir Agora &rarr;</a></span>
-  </div>
+  <div class="topbar" id="topbar"><span>OFERTA VALIDA ATE HOJE (<strong id="dynamic-date"></strong>) - Apenas R$ 10,00 - <a href="https://pay.wiapy.com/du7zZ5ks4EsE" style="color:#FFF;text-decoration:underline;">Garantir Agora &rarr;</a></span></div>
   <script>
     (function(){
       var today = new Date();
@@ -116,6 +152,34 @@
             <li><span class="check">✅</span> 9 kits completos + 4 bônus exclusivos</li>
             <li><span class="check">✅</span> 7 dias de garantia incondicional</li>
           </ul>
+
+
+
+          <!-- WYG + BONUS INLINE -->
+          <div class="wyg-block">
+            <p class="wyg-title">O que voce vai receber:</p>
+            <div class="wyg-list">
+              <div class="wyg-card"><img src="imagems/caixinhas-desabafo.jpg" alt="Caixinhas do Desabafo" loading="lazy" /><span>Caixinhas do Desabafo</span></div>
+              <div class="wyg-card"><img src="imagems/paineis-completos.jpg" alt="Paineis Completos" loading="lazy" /><span>Paineis Completos</span></div>
+              <div class="wyg-card"><img src="imagems/bambolees-tematicos.jpg" alt="Bambolees Tematicos" loading="lazy" /><span>Bambolees Tematicos</span></div>
+              <div class="wyg-card"><img src="imagems/lembrancinhas.jpg" alt="Lembrancinhas" loading="lazy" /><span>Lembrancinhas</span></div>
+              <div class="wyg-card"><img src="imagems/adesivos-exclusivos.jpg" alt="Adesivos Exclusivos" loading="lazy" /><span>Adesivos Exclusivos</span></div>
+              <div class="wyg-card"><img src="imagems/pronto-imprimir.jpg" alt="Pronto pra imprimir" loading="lazy" /><span>Pronto pra imprimir</span></div>
+            </div>
+          </div>
+
+          <div class="bonus-inline-block">
+            <span class="section-tag bonus-tag" style="font-size:0.72rem;padding:4px 10px;">Bonus Exclusivos</span>
+            <h3 class="bonus-inline-title">Bonus incriveis so HOJE! 🎁</h3>
+            <p class="bonus-inline-desc">Ganhe 4 kits extras sem pagar nada a mais.</p>
+            <div class="bonus-inline-grid">
+              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Ilustracoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Ilustracoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
+              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Publicacoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Publicacoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
+              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Cartoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Cartoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
+              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Camisas.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Camisas</h3><p class="bonus-free">100% GRATIS</p></div></div>
+            </div>
+            <p style="margin-top:10px;font-size:0.82rem;color:#aaa;">Valor total: <span class="strike">R$ 116,00</span> -> <strong class="free-tag">GRATIS!</strong></p>
+          </div>
 
           <div class="hero-price-box">
             <p class="price-from">de <span class="strike">R$ 97,90</span></p>
@@ -443,6 +507,7 @@
 
 
 
+<script>(function(){var d=new Date();var el=document.getElementById('dynamic-date');if(el)el.innerText=String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();})();</script>
 </body>
 
 
