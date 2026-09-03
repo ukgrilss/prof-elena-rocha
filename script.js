@@ -1,211 +1,234 @@
-/* ======================================
-   SCRIPT — Kit Setembro Amarelo 2026
-   ====================================== */
+/* =========================================================================
+   Kit Setembro Amarelo — script unico
+   -------------------------------------------------------------------------
+   O que mudou em relacao ao arquivo antigo, e por que:
 
-// ========== CAROUSEL ==========
-(function initCarousel() {
-  const track = document.getElementById('carouselTrack');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  const dotsContainer = document.getElementById('carouselDots');
+   1. passUTMs procurava links de "hotmart.com". O checkout desta pagina e
+      pay.wiapy.com, entao NENHUMA UTM chegava no checkout — sobra do
+      template de onde a pagina foi copiada. Corrigido pra wiapy.
 
-  if (!track) return;
+   2. Sairam o contador de "pessoas na cidade" que subia sozinho com
+      Math.random, a barra de "92% esgotando" e o cronometro de 15 min que
+      reiniciava a cada carregamento. Nenhum media a coisa nenhuma.
 
-  const slides = track.querySelectorAll('.carousel-slide');
-  let current = 0;
-  let autoInterval;
+   3. A contagem agora e de dias reais ate o fim do Setembro Amarelo.
 
-  // Create dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
+   4. Prova social e aviso de venda leem window.KIT (no topo do index.html).
+      Vazio = nao aparece. Nada e gerado pelo script.
 
-  function updateDots() {
-    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
-    });
-  }
+   5. O botao do hero e a barra do celular apontam pra #planos, nao pro
+      checkout: a pessoa cai na secao com os dois precos e escolhe ali.
+      Quem carrega UTM pro checkout sao os 3 links de pagamento que sobraram
+      (basico, premium e o do fechamento) — ancora nao precisa de UTM.
+   ========================================================================= */
 
-  function goTo(index) {
-    current = (index + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    updateDots();
-  }
+(function () {
+  'use strict';
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+  var CFG = window.KIT || {};
+  var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
-  nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+  /* ------------------------------------------------------------------
+     CARROSSEL
+     ------------------------------------------------------------------ */
+  (function carrossel() {
+    var trilha = document.getElementById('trilha');
+    if (!trilha) return;
 
-  // Touch / Swipe support
-  let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
-    resetAuto();
-  });
+    var fotos = trilha.children;
+    var bolinhas = document.getElementById('bolinhas');
+    var atual = 0;
+    var timer;
 
-  function startAuto() {
-    autoInterval = setInterval(next, 4500);
-  }
+    for (var i = 0; i < fotos.length; i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'bolinha';
+      b.setAttribute('aria-label', 'Ver foto ' + (i + 1));
+      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', (function (n) {
+        return function () { vaiPara(n); reinicia(); };
+      })(i));
+      bolinhas.appendChild(b);
+    }
 
-  function resetAuto() {
-    clearInterval(autoInterval);
-    startAuto();
-  }
-
-  startAuto();
-})();
-
-
-// ========== SCROLL ANIMATIONS (AOS-like) ==========
-(function initScrollAnimations() {
-  const elements = document.querySelectorAll('[data-aos]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Stagger children if multiple siblings
-        const siblings = entry.target.parentElement.querySelectorAll('[data-aos]');
-        let delay = 0;
-        siblings.forEach((el, i) => {
-          if (el === entry.target) delay = i * 80;
-        });
-        setTimeout(() => {
-          entry.target.classList.add('aos-active');
-        }, delay);
-        observer.unobserve(entry.target);
+    function vaiPara(n) {
+      atual = (n + fotos.length) % fotos.length;
+      trilha.style.transform = 'translateX(-' + (atual * 100) + '%)';
+      var pontos = bolinhas.children;
+      for (var i = 0; i < pontos.length; i++) {
+        pontos[i].setAttribute('aria-current', i === atual ? 'true' : 'false');
       }
+    }
+
+    function proxima() { vaiPara(atual + 1); }
+    function anterior() { vaiPara(atual - 1); }
+
+    document.getElementById('prox').addEventListener('click', function () { proxima(); reinicia(); });
+    document.getElementById('ant').addEventListener('click', function () { anterior(); reinicia(); });
+
+    var x0 = 0;
+    trilha.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    trilha.addEventListener('touchend', function (e) {
+      var d = x0 - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) { d > 0 ? proxima() : anterior(); reinicia(); }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  elements.forEach(el => observer.observe(el));
-})();
+    function comeca() { if (!semMovimento) timer = setInterval(proxima, 5000); }
+    function reinicia() { clearInterval(timer); comeca(); }
+    comeca();
+  })();
 
+  /* ------------------------------------------------------------------
+     DIAS ATE O FIM DO SETEMBRO AMARELO
+     Prazo de verdade: a campanha acaba em 30/09. Se a data ja passou, o
+     texto de urgencia simplesmente sai do ar em vez de mentir.
+     ------------------------------------------------------------------ */
+  (function contagem() {
+    var fim = CFG.fimDaCampanha;
+    if (!fim) return;
 
-// ========== SCARCITY BAR ANIMATION ==========
-(function initScarcityBar() {
-  const bars = document.querySelectorAll('.scarcity-bar-inner');
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var alvo = new Date(fim + 'T00:00:00');
+    var dias = Math.round((alvo - hoje) / 86400000);
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.width = '92%';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
+    var naTopbar = document.getElementById('dias-restantes');
+    var noFecho = document.getElementById('fecho-dias');
 
-  bars.forEach(bar => {
-    bar.style.width = '0%';
-    bar.style.transition = 'width 2.5s ease-out';
-    observer.observe(bar);
-  });
-})();
-
-
-// ========== DYNAMIC CITY COUNT (Social Proof) ==========
-(function initCityCount() {
-  const cityEl = document.querySelector('.city-num');
-  if (!cityEl) return;
-
-  // Randomly fluctuate the count by ±1 occasionally to feel live
-  const base = parseInt(cityEl.textContent) || 319;
-  let current = base;
-
-  setInterval(() => {
-    const delta = Math.random() < 0.3 ? 1 : 0;
-    current = Math.min(current + delta, base + 12);
-    cityEl.textContent = current;
-  }, 8000);
-})();
-
-
-// ========== COUNTDOWN — Urgency (optional visual) ==========
-(function initCountdown() {
-  // Find if there's a countdown element — if not, skip
-  const el = document.getElementById('countdown');
-  if (!el) return;
-
-  let seconds = 15 * 60; // 15 minutes
-
-  function update() {
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const s = (seconds % 60).toString().padStart(2, '0');
-    el.textContent = `${m}:${s}`;
-    if (seconds > 0) seconds--;
-  }
-
-  update();
-  setInterval(update, 1000);
-})();
-
-
-// ========== STICKY TOP BAR HIDE ON SCROLL UP ==========
-(function initTopbar() {
-  const topbar = document.getElementById('topbar');
-  if (!topbar) return;
-  let lastY = window.scrollY;
-
-  window.addEventListener('scroll', () => {
-    const currentY = window.scrollY;
-    if (currentY < lastY || currentY < 80) {
-      topbar.style.transform = 'translateY(0)';
+    if (dias > 1) {
+      if (naTopbar) naTopbar.textContent = 'faltam ' + dias + ' dias';
+      if (noFecho) noFecho.textContent = 'Faltam ' + dias + ' dias pro fim da campanha. Da tempo de imprimir e montar com folga.';
+    } else if (dias === 1) {
+      if (naTopbar) naTopbar.textContent = 'e amanha';
+      if (noFecho) noFecho.textContent = 'Amanha e o ultimo dia da campanha.';
+    } else if (dias === 0) {
+      if (naTopbar) naTopbar.textContent = 'e hoje';
+      if (noFecho) noFecho.textContent = 'Hoje e o ultimo dia da campanha.';
     } else {
-      topbar.style.transform = 'translateY(-100%)';
+      if (naTopbar) naTopbar.closest('.topbar').hidden = true;
+      if (noFecho) noFecho.textContent = 'O kit continua disponivel pra usar no ano que vem.';
     }
-    lastY = currentY;
-  }, { passive: true });
+  })();
 
-  topbar.style.transition = 'transform 0.3s ease';
-})();
+  /* ------------------------------------------------------------------
+     PROVA SOCIAL — so o que voce preencheu em window.KIT
+     ------------------------------------------------------------------ */
+  (function provaNota() {
+    var el = document.getElementById('prova-nota');
+    if (!el) return;
 
+    var partes = [];
+    if (CFG.avaliacao && CFG.avaliacoes > 0) {
+      partes.push('Nota ' + CFG.avaliacao + ' em ' + CFG.avaliacoes + ' avaliacoes');
+    }
+    if (CFG.kitsVendidos > 0) {
+      partes.push(CFG.kitsVendidos + ' kits ja baixados');
+    }
+    if (!partes.length) return;   // nada preenchido: o elemento fica escondido
 
-// ========== UTM TRACKING — Pass UTMs to all CTA links ==========
-(function passUTMs() {
-  const params = new URLSearchParams(window.location.search);
-  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'src'];
+    el.className = 'pilula pilula-coracao';
+    el.style.marginBottom = '.9rem';
+    el.textContent = partes.join(' · ');
+    el.hidden = false;
+  })();
 
-  const utmParams = [];
-  utmKeys.forEach(key => {
-    if (params.has(key)) utmParams.push(`${key}=${encodeURIComponent(params.get(key))}`);
-  });
+  /* ------------------------------------------------------------------
+     AVISO DE VENDA
+     Roda em cima de CFG.vendasRecentes. Lista vazia = nunca aparece.
+     O script nao inventa nome, cidade nem horario: mostra o que voce
+     colocou na lista. Foi assim de proposito — o codigo antigo sorteava
+     nomes com Math.random e isso e o tipo de coisa que, quando o cliente
+     percebe, derruba a confianca no resto da pagina.
+     ------------------------------------------------------------------ */
+  (function avisoVenda() {
+    var lista = CFG.vendasRecentes;
+    if (!lista || !lista.length) return;
 
-  if (utmParams.length === 0) return;
+    var caixa = document.createElement('div');
+    caixa.className = 'aviso';
+    caixa.setAttribute('role', 'status');
+    document.body.appendChild(caixa);
 
-  document.querySelectorAll('a[href*="hotmart.com"], a[href*="pay.hotmart"]').forEach(link => {
-    const separator = link.href.includes('?') ? '&' : '?';
-    link.href = link.href + separator + utmParams.join('&');
-  });
-})();
+    var n = 0;
+    function mostra() {
+      var v = lista[n % lista.length];
+      n++;
+      caixa.innerHTML = '<span class="aviso-tique">&#10003;</span><span><b>' +
+        String(v.nome || '').replace(/</g, '&lt;') + '</b>' +
+        (v.cidade ? ', ' + String(v.cidade).replace(/</g, '&lt;') : '') +
+        ' levou o ' + String(v.produto || 'kit').replace(/</g, '&lt;') + '</span>';
+      caixa.classList.add('aparece');
+      setTimeout(function () { caixa.classList.remove('aparece'); }, 5000);
+    }
+    setTimeout(function () { mostra(); setInterval(mostra, 22000); }, 6000);
+  })();
 
+  /* ------------------------------------------------------------------
+     BARRA DE COMPRA NO CELULAR
+     Ela existe pra trazer o botao pra perto de quem esta longe dele.
+     Logo: aparece quando o botao do hero sai da tela E desaparece quando a
+     secao de planos entra. Sem essa segunda condicao a barra ficaria em
+     cima dos dois cartoes de preco apontando pra #planos, ou seja: um botao
+     que nao faz nada visivel na tela.
+     ------------------------------------------------------------------ */
+  (function barraFixa() {
+    var barra = document.getElementById('barra-fixa');
+    var botaoHero = document.getElementById('cta-hero');
+    var planos = document.getElementById('planos');
+    if (!barra || !botaoHero || !('IntersectionObserver' in window)) return;
 
-// ========== SMOOTH SCROLL for internal anchors ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
+    var naTela = {};
+
+    var olho = new IntersectionObserver(function (entradas) {
+      for (var i = 0; i < entradas.length; i++) {
+        naTela[entradas[i].target.id] = entradas[i].isIntersecting;
+      }
+      barra.classList.toggle('aparece', !naTela['cta-hero'] && !naTela['planos']);
+    }, { threshold: 0 });
+
+    olho.observe(botaoHero);
+    if (planos) olho.observe(planos);
+  })();
+
+  /* ------------------------------------------------------------------
+     UTM ATE O CHECKOUT  <-- este era o bug caro
+     O script antigo so mexia em links de hotmart.com, mas todo checkout
+     desta pagina e pay.wiapy.com. Ou seja: utm_source, utm_campaign e
+     utm_content nao chegavam no checkout, e voce perdia a atribuicao de
+     qual anuncio gerou a venda. Agora vale pra qualquer link de pagamento.
+     ------------------------------------------------------------------ */
+  (function levaUTM() {
+    var busca = new URLSearchParams(window.location.search);
+    var chaves = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content',
+                  'utm_term', 'utm_id', 'src', 'sck', 'fbclid', 'gclid'];
+
+    var extras = [];
+    chaves.forEach(function (k) {
+      if (busca.has(k)) extras.push(k + '=' + encodeURIComponent(busca.get(k)));
+    });
+    if (!extras.length) return;
+
+    var links = document.querySelectorAll(
+      'a[href*="pay.wiapy.com"], a[href*="wiapy.com"], a[href*="pay."]'
+    );
+    Array.prototype.forEach.call(links, function (a) {
+      a.href += (a.href.indexOf('?') === -1 ? '?' : '&') + extras.join('&');
+    });
+  })();
+
+  /* ------------------------------------------------------------------
+     ROLAGEM SUAVE PRA ANCORAS INTERNAS
+     ------------------------------------------------------------------ */
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
+    a.addEventListener('click', function (e) {
+      var alvo = document.querySelector(this.getAttribute('href'));
+      if (!alvo) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-
-// ========== CTA Click Tracking (console log for analytics) ==========
-(function trackClicks() {
-  const ctaBtns = document.querySelectorAll('.btn-cta');
-  ctaBtns.forEach(btn => {
-    btn.addEventListener('click', function () {
-      const id = this.id || 'unknown-cta';
-      console.log(`[CTA Click] Button ID: ${id} | Time: ${new Date().toISOString()}`);
-      // If using Google Analytics (gtag):
-      // gtag('event', 'click', { event_category: 'CTA', event_label: id });
+      alvo.scrollIntoView({ behavior: semMovimento ? 'auto' : 'smooth', block: 'start' });
     });
   });
+
+
+
+
 })();

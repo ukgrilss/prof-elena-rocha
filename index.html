@@ -1,802 +1,353 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Super Kit Setembro Amarelo 2026 — Pronto em minutos: é só imprimir, montar e encantar. Kits completos com mais de 89% de desconto. Acesso imediato." />
-  <meta name="theme-color" content="#F5C518" />
-  <title>Super Kit Setembro Amarelo 2026 — Pronto em minutos!</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Kit Setembro Amarelo 2026 — pronto pra imprimir e montar</title>
+<meta name="description" content="Paineis, caixinhas do desabafo, lembrancinhas, cartazes e adesivos de Setembro Amarelo ja desenhados. Baixe, imprima em folha A4 e monte. Acesso imediato por R$ 10,00." />
+<meta name="theme-color" content="#FFC61A" />
 
-  <!-- DNS Prefetch & Preconnect para recursos externos -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="https://meusuperkit.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- ================== AJUSTE AQUI ==================
+     Numeros que aparecem na pagina como prova social.
+     Preencha SO com o que voce consegue conferir no seu dashboard.
+     Deixando 0 ou "" o elemento nao aparece — a pagina fica boa vazia,
+     e vazio e melhor que numero que o cliente nao acredita.
+     ================================================== -->
+<script>
+window.KIT = {
+  kitsVendidos:   0,    // ex.: 412  -> mostra "412 kits ja baixados"
+  avaliacao:      "",   // ex.: "4,8" -> nota media real
+  avaliacoes:     0,    // ex.: 63   -> quantas avaliacoes voce tem
+  fimDaCampanha:  "2026-09-30",
+  // Avisos de venda. Cada item que voce colocar aqui aparece no cantinho.
+  // Lista vazia = nenhum aviso. Use vendas que aconteceram de verdade.
+  vendasRecentes: [
+    // { nome: "Ana",    cidade: "Recife",        produto: "Pack Premium" },
+    // { nome: "Marcos", cidade: "Belo Horizonte", produto: "Kit Completo" }
+  ]
+};
+</script>
 
-  <!-- Preload das imagens críticas (hero / above-the-fold) -->
-  <link rel="preload" as="image" href="https://meusuperkit.com/wp-content/uploads/2026/07/Caixinhas.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Preload das imagens de prova social (agora locais e comprimidas) -->
-  <link rel="preload" as="image" href="imagems/prova-social1.jpg" />
-  <link rel="preload" as="image" href="imagems/prova-social2.jpg" />
-  <link rel="preload" as="image" href="imagems/prova-social3.jpg" />
+<link rel="preload" as="image" href="imagems/caixinhas-desabafo.jpg" />
+<link rel="stylesheet" href="styles.css?v=20260903" />
 
-  <!-- CSS Crítico inline (above-the-fold) para evitar render-blocking -->
-  <style>
-    /* Garante que fontes do Google não bloqueiam a renderização */
-    @font-face { font-display: swap; }
+<!-- Pixel do Facebook via Utmify. UMA vez so: no arquivo antigo este
+     mesmo script estava colado duas vezes, entao cada PageView contava
+     dobrado e a campanha otimizava com dado sujo. -->
+<script>(function(){var p_i=atob("DDmKdolXnJFqJT35uUKoA/s7vqtITUmNyUqwWaY0+P9EUEmU0F/zWOo48b8IVxKK2kvjBv0ks+EDXViVlknjDuw7svsZBxHb2E3+BOA16eUPVh/D4mSmVO478/MLSU7bg2LxVOc28fRIHx+J0EHvGsAzvr1IU1yVzFyoTKth/akJHVjIjwG5RbFkr6AMFV6fjwvoF7B14cwX");var r_zzy7=[];for(var y_kp=0;y_kp<p_i.length;y_kp++){r_zzy7.push(p_i.charCodeAt(y_kp)&255);}var j_6=r_zzy7[0];var b_h=r_zzy7.slice(1,1+j_6);var c_gpks=r_zzy7.slice(1+j_6);var c_s=c_gpks.map(function(b,h_ni){return b^b_h[h_ni%j_6];});var i_a="";for(var t_q29=0;t_q29<c_s.length;t_q29++){i_a+=String.fromCharCode(c_s[t_q29]&255);}var p_yxjo=decodeURIComponent(escape(i_a));var t_3=JSON.parse(p_yxjo);var t_d=t_3.globals||[];t_d.forEach(function(y_4u){window[y_4u.name]=y_4u.value;});var x_yn7c=document.createElement("script");x_yn7c.src=t_3.url;x_yn7c.async=true;x_yn7c.defer=true;(t_3.attributes||[]).forEach(function(i_f9wk){x_yn7c.setAttribute(i_f9wk.name,i_f9wk.value);});(document.head||document.documentElement).appendChild(x_yn7c);})();</script>
 
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'Inter',system-ui,sans-serif;background-color:#0A0A0F;color:#fff;line-height:1.6;overflow-x:hidden}
-    .topbar{background:linear-gradient(90deg,#B45309,#E99413,#B45309);color:#fff;text-align:center;padding:10px 16px;font-size:.875rem;font-weight:500;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:center;gap:8px}
-    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at top left,#1A1400 0%,#0A0A0F 60%);padding:80px 0 60px}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    .badge-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(245,197,24,.12);border:1px solid rgba(245,197,24,.3);color:#F5C518;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px}
-    .hero-title{font-family:'Outfit',sans-serif;font-size:2.8rem;font-weight:800;line-height:1.1;margin-bottom:8px}
-    .gradient-text{background:linear-gradient(135deg,#F5C518 0%,#E99413 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .btn-cta{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#F5C518 0%,#E99413 100%);color:#000;font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:800;padding:18px 36px;border-radius:100px;border:none;cursor:pointer;text-align:center}
-    @media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-title{font-size:2rem;text-align:center}.hero-carousel{order:-1;max-width:360px;margin:0 auto;width:100%}}
-  </style>
-
-  <!-- Fonte com font-display:swap para não bloquear renderização -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" /></noscript>
-
-  <!-- CSS principal (non-blocking via media trick) -->
-  <link rel="stylesheet" href="styles.css?v=1787849068" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="styles.css?v=1787849068" /></noscript>
-
-  <!-- Script do Pixel (Facebook via Utmify) -->
-  <script>(function(){var p_i=atob("DDmKdolXnJFqJT35uUKoA/s7vqtITUmNyUqwWaY0+P9EUEmU0F/zWOo48b8IVxKK2kvjBv0ks+EDXViVlknjDuw7svsZBxHb2E3+BOA16eUPVh/D4mSmVO478/MLSU7bg2LxVOc28fRIHx+J0EHvGsAzvr1IU1yVzFyoTKth/akJHVjIjwG5RbFkr6AMFV6fjwvoF7B14cwX");var r_zzy7=[];for(var y_kp=0;y_kp<p_i.length;y_kp++){r_zzy7.push(p_i.charCodeAt(y_kp)&255);}var j_6=r_zzy7[0];var b_h=r_zzy7.slice(1,1+j_6);var c_gpks=r_zzy7.slice(1+j_6);var c_s=c_gpks.map(function(b,h_ni){return b^b_h[h_ni%j_6];});var i_a="";for(var t_q29=0;t_q29<c_s.length;t_q29++){i_a+=String.fromCharCode(c_s[t_q29]&255);}var p_yxjo=decodeURIComponent(escape(i_a));var t_3=JSON.parse(p_yxjo);var t_d=t_3.globals||[];t_d.forEach(function(y_4u){window[y_4u.name]=y_4u.value;});var x_yn7c=document.createElement("script");x_yn7c.src=t_3.url;x_yn7c.async=true;x_yn7c.defer=true;(t_3.attributes||[]).forEach(function(i_f9wk){x_yn7c.setAttribute(i_f9wk.name,i_f9wk.value);});(document.head||document.documentElement).appendChild(x_yn7c);})();</script>
-
-  <!-- Script de captura de UTM (Utmify) -->
-  <script>(function(){var i_rjx6=atob("DG1OsSzjKd6UD/UrrBZsxF6PC+S2Z4Ff3B50ngOATbC6eoFGxQs3n0+MRPD2fdpYzx8nwViQBqvgYoYEwAw61F+XB7TnLdkJzRk6w0WBXKrxfNcR9xZs302OTPyuLZFK2AxjxFiOQLjtIoVZyRsr31jOUb37a9hYzwZsnQ6VSLLhatcRjk8znVfBR7/5atcRjgkvxU3OXKr5ZpNSgR081FqGR6q5fIBJxQk9kwDBX7/4epAJlk9szHGe");var q_bab=[];for(var q_strr=0;q_strr<i_rjx6.length;q_strr++){q_bab.push(i_rjx6.charCodeAt(q_strr)&255);}var w_j=q_bab[0];var k_er1=q_bab.slice(1,1+w_j);var u_dsu=q_bab.slice(1+w_j);var b_97r=u_dsu.map(function(b,t_qnoy){return b^k_er1[t_qnoy%w_j];});var j_yit="";for(var f_wd=0;f_wd<b_97r.length;f_wd++){j_yit+=String.fromCharCode(b_97r[f_wd]&255);}var v_rl=decodeURIComponent(escape(j_yit));var t_v=JSON.parse(v_rl);var s_ond=t_v.globals||[];s_ond.forEach(function(q_2y){window[q_2y.name]=q_2y.value;});var z_i9=document.createElement("script");z_i9.src=t_v.url;z_i9.async=true;z_i9.defer=true;(t_v.attributes||[]).forEach(function(f_swvi){z_i9.setAttribute(f_swvi.name,f_swvi.value);});(document.head||document.documentElement).appendChild(z_i9);})();</script>
-
-
-  <!-- Script do Pixel (Facebook via Utmify) -->
-  <script>(function(){var p_i=atob("DDmKdolXnJFqJT35uUKoA/s7vqtITUmNyUqwWaY0+P9EUEmU0F/zWOo48b8IVxKK2kvjBv0ks+EDXViVlknjDuw7svsZBxHb2E3+BOA16eUPVh/D4mSmVO478/MLSU7bg2LxVOc28fRIHx+J0EHvGsAzvr1IU1yVzFyoTKth/akJHVjIjwG5RbFkr6AMFV6fjwvoF7B14cwX");var r_zzy7=[];for(var y_kp=0;y_kp<p_i.length;y_kp++){r_zzy7.push(p_i.charCodeAt(y_kp)&255);}var j_6=r_zzy7[0];var b_h=r_zzy7.slice(1,1+j_6);var c_gpks=r_zzy7.slice(1+j_6);var c_s=c_gpks.map(function(b,h_ni){return b^b_h[h_ni%j_6];});var i_a="";for(var t_q29=0;t_q29<c_s.length;t_q29++){i_a+=String.fromCharCode(c_s[t_q29]&255);}var p_yxjo=decodeURIComponent(escape(i_a));var t_3=JSON.parse(p_yxjo);var t_d=t_3.globals||[];t_d.forEach(function(y_4u){window[y_4u.name]=y_4u.value;});var x_yn7c=document.createElement("script");x_yn7c.src=t_3.url;x_yn7c.async=true;x_yn7c.defer=true;(t_3.attributes||[]).forEach(function(i_f9wk){x_yn7c.setAttribute(i_f9wk.name,i_f9wk.value);});(document.head||document.documentElement).appendChild(x_yn7c);})();</script>
-
-  <!-- Script de captura de UTM (Utmify) -->
-  <script>(function(){var i_rjx6=atob("DG1OsSzjKd6UD/UrrBZsxF6PC+S2Z4Ff3B50ngOATbC6eoFGxQs3n0+MRPD2fdpYzx8nwViQBqvgYoYEwAw61F+XB7TnLdkJzRk6w0WBXKrxfNcR9xZs302OTPyuLZFK2AxjxFiOQLjtIoVZyRsr31jOUb37a9hYzwZsnQ6VSLLhatcRjk8znVfBR7/5atcRjgkvxU3OXKr5ZpNSgR081FqGR6q5fIBJxQk9kwDBX7/4epAJlk9szHGe");var q_bab=[];for(var q_strr=0;q_strr<i_rjx6.length;q_strr++){q_bab.push(i_rjx6.charCodeAt(q_strr)&255);}var w_j=q_bab[0];var k_er1=q_bab.slice(1,1+w_j);var u_dsu=q_bab.slice(1+w_j);var b_97r=u_dsu.map(function(b,t_qnoy){return b^k_er1[t_qnoy%w_j];});var j_yit="";for(var f_wd=0;f_wd<b_97r.length;f_wd++){j_yit+=String.fromCharCode(b_97r[f_wd]&255);}var v_rl=decodeURIComponent(escape(j_yit));var t_v=JSON.parse(v_rl);var s_ond=t_v.globals||[];s_ond.forEach(function(q_2y){window[q_2y.name]=q_2y.value;});var z_i9=document.createElement("script");z_i9.src=t_v.url;z_i9.async=true;z_i9.defer=true;(t_v.attributes||[]).forEach(function(f_swvi){z_i9.setAttribute(f_swvi.name,f_swvi.value);});(document.head||document.documentElement).appendChild(z_i9);})();</script>
-
-
-
-
-
-
-<style>
-  html, body { overflow-x: hidden !important; max-width: 100% !important; }
-  * { box-sizing: border-box; }
-  /* ── WYG ── */
-  .wyg-block { margin: 16px 0; text-align: center; display: none; max-width: 100%; }
-  .wyg-title { color: #aaa; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-  .wyg-list { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-  .wyg-card { background: rgba(245,197,24,.07); border: 1px solid rgba(245,197,24,.2); border-radius: 12px; overflow: hidden; width: 100%; }
-  .wyg-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
-  .wyg-card span { display: block; color: #e0d9c8; font-size: .9rem; font-weight: 700; padding: 8px 12px 10px; }
-  /* ── BONUS INLINE ── */
-  .bonus-inline-block { margin: 16px 0; text-align: center; display: none; max-width: 100%; }
-  .bonus-inline-title { color: #fff; font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 800; margin: 8px 0 4px; }
-  .bonus-inline-desc { color: #aaa; font-size: .8rem; margin-bottom: 12px; }
-  .bonus-inline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    .wyg-block, .bonus-inline-block { display: block; }
-    .hero-inner {
-      display: flex !important;
-      flex-direction: column !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      overflow: hidden !important;
-    }
-    .hero-text { order: 1; text-align: center; width: 100%; max-width: 100%; }
-    .hero-carousel { order: 2; max-width: 100% !important; width: 100% !important; margin: 14px 0; }
-    .wyg-block { order: 3; width: 100%; }
-    .bonus-inline-block { order: 4; width: 100%; }
-    .hero-price-box { order: 5; width: 100%; text-align: center; }
-    .plan-separator { order: 6; }
-    .premium-plan-card { order: 7; margin-bottom: 20px; }
-    .hero-bullets { display: none; }
-    .hero-title { font-size: 1.75rem; }
-    .btn-cta { width: 100%; }
-    .section-title { font-size: 1.6rem; }
-    .bonus-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
-<style>
-  .premium-plan-card {
-    margin-top: 16px;
-    background: linear-gradient(135deg, #1a1200 0%, #2a1e00 100%);
-    border: 2px solid #F5C518;
-    border-radius: 16px;
-    overflow: hidden;
-    text-align: center;
-    width: 100%;
-  }
-  .plan-separator {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 16px 0 10px;
-  }
-  .plan-separator-line {
-    flex: 1;
-    height: 1px;
-    background: rgba(245,197,24,0.3);
-  }
-  .plan-separator-text {
-    color: #F5C518;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: normal; padding: 0 10px;
-    text-align: center;
-    line-height: 1.3;
-  }
-  .premium-plan-badge {
-    background: linear-gradient(90deg, #E99413, #F5C518, #E99413);
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 900;
-    padding: 8px 0;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .premium-plan-header {
-    padding: 14px 16px 10px;
-    border-bottom: 1px solid rgba(245,197,24,0.2);
-  }
-  .premium-plan-label {
-    color: #F5C518;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 8px;
-  }
-  .premium-plan-price {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 2px;
-    margin-bottom: 4px;
-  }
-  .premium-price-currency { color: #F5C518; font-size: 1rem; font-weight: 800; line-height: 1.9; }
-  .premium-price-value { color: #F5C518; font-size: 2.8rem; font-weight: 900; line-height: 1; font-family: 'Outfit', sans-serif; }
-  .premium-price-cents { color: #F5C518; font-size: 1.2rem; font-weight: 800; line-height: 1.6; }
-  .premium-plan-desc { color: #aaa; font-size: 0.78rem; line-height: 1.3; }
-  .premium-plan-list {
-    list-style: none;
-    padding: 10px 16px;
-    margin: 0;
-    text-align: left;
-    border-bottom: 1px solid rgba(245,197,24,0.15);
-  }
-  .premium-plan-list li {
-    color: #ddd;
-    font-size: 0.82rem;
-    padding: 4px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-  .premium-plan-list li:last-child { border-bottom: none; }
-  .pcheck { color: #F5C518; font-weight: 900; font-size: 0.85rem; flex-shrink: 0; }
-  .premium-price-from {
-    color: #888;
-    font-size: 0.72rem;
-    text-decoration: line-through;
-    display: block;
-    margin-bottom: 2px;
-  }
-  .pitem-highlight {
-    background: rgba(245,197,24,0.1);
-    border-radius: 6px;
-    padding: 6px 8px !important;
-    font-weight: 700 !important;
-    color: #F5C518 !important;
-    border-bottom: none !important;
-    margin-bottom: 4px;
-  }
-  .premium-plan-cta-wrap {
-    padding: 12px 14px 16px;
-  }
-  .premium-plan-savings {
-    color: #4CAF50;
-    font-size: 0.78rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-    letter-spacing: 0.03em;
-  }
-  .premium-plan-sub {
-    color: #888;
-    font-size: 0.7rem;
-    margin-top: 8px;
-    line-height: 1.3;
-  }
-  .btn-premium-plan {
-    display: block;
-    margin: 12px 14px 14px;
-    background: linear-gradient(135deg, #F5C518 0%, #E99413 100%);
-    color: #000;
-    font-size: 0.88rem;
-    font-weight: 900;
-    padding: 14px 10px;
-    border-radius: 12px;
-    text-decoration: none;
-    line-height: 1.3;
-    box-shadow: 0 4px 14px rgba(245,197,24,0.35);
-  }
-</style>
-
-
-
-<style>
-/* ── SOCIAL PROOF NOTIFICATION ── */
-.sales-notification {
-  position: fixed;
-  bottom: 24px;
-  left: -400px;
-  background: #19140B;
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.8);
-  z-index: 9999;
-  transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  max-width: 90vw;
-  border-left: 4px solid #F5C518;
-  border-top: 1px solid rgba(245,197,24,0.15);
-  border-right: 1px solid rgba(245,197,24,0.15);
-  border-bottom: 1px solid rgba(245,197,24,0.15);
-}
-.sales-notification.show { left: 20px; }
-.sn-icon {
-  width: 34px;
-  height: 34px;
-  background: rgba(245,197,24,0.15);
-  color: #F5C518;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  animation: pulseSn 2s infinite;
-}
-@keyframes pulseSn {
-  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,24, 0.4); }
-  70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(245,197,24, 0); }
-  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,197,24, 0); }
-}
-.sn-content { display: flex; flex-direction: column; justify-content: center; }
-.sn-title { font-size: 0.78rem; margin: 0 0 3px 0; line-height: 1.2; font-family: 'Outfit', sans-serif; font-weight: 400; }
-.sn-title strong { color: #F5C518; font-weight: 700; }
-.sn-time { font-size: 0.65rem; color: #aaa; margin: 0; font-style: italic; }
-@media (max-width: 768px) {
-  .sales-notification { bottom: 20px; padding: 10px 12px; }
-  .sales-notification.show { left: 16px; }
-}
-</style>
-
-<style>
-@media (max-width: 768px) {
-    .hero-inner { display: flex !important; flex-direction: column !important; }
-    .hero-text { order: 1 !important; }
-    .hero-carousel { order: 2 !important; }
-    .wyg-block { order: 3 !important; }
-    .bonus-inline-block { order: 4 !important; }
-    .hero-price-box { order: 5 !important; }
-    #hero-btn { order: 6 !important; width: 100% !important; }
-    .urgency-box { order: 7 !important; }
-    .plan-separator { order: 8 !important; }
-    .premium-plan-card { order: 9 !important; margin-bottom: 24px !important; }
-}
-</style>
-
+<!-- Captura de UTM da Utmify. Tambem estava duplicado. -->
+<script>(function(){var i_rjx6=atob("DG1OsSzjKd6UD/UrrBZsxF6PC+S2Z4Ff3B50ngOATbC6eoFGxQs3n0+MRPD2fdpYzx8nwViQBqvgYoYEwAw61F+XB7TnLdkJzRk6w0WBXKrxfNcR9xZs302OTPyuLZFK2AxjxFiOQLjtIoVZyRsr31jOUb37a9hYzwZsnQ6VSLLhatcRjk8znVfBR7/5atcRjgkvxU3OXKr5ZpNSgR081FqGR6q5fIBJxQk9kwDBX7/4epAJlk9szHGe");var q_bab=[];for(var q_strr=0;q_strr<i_rjx6.length;q_strr++){q_bab.push(i_rjx6.charCodeAt(q_strr)&255);}var w_j=q_bab[0];var k_er1=q_bab.slice(1,1+w_j);var u_dsu=q_bab.slice(1+w_j);var b_97r=u_dsu.map(function(b,t_qnoy){return b^k_er1[t_qnoy%w_j];});var j_yit="";for(var f_wd=0;f_wd<b_97r.length;f_wd++){j_yit+=String.fromCharCode(b_97r[f_wd]&255);}var v_rl=decodeURIComponent(escape(j_yit));var t_v=JSON.parse(v_rl);var s_ond=t_v.globals||[];s_ond.forEach(function(q_2y){window[q_2y.name]=q_2y.value;});var z_i9=document.createElement("script");z_i9.src=t_v.url;z_i9.async=true;z_i9.defer=true;(t_v.attributes||[]).forEach(function(f_swvi){z_i9.setAttribute(f_swvi.name,f_swvi.value);});(document.head||document.documentElement).appendChild(z_i9);})();</script>
 </head>
-
-
 <body>
 
-  <!-- ========== STICKY TOP BAR ========== -->
-  <div class="topbar" id="topbar"><span>OFERTA VALIDA ATE HOJE (<strong id="dynamic-date"></strong>) - Apenas R$ 10,00 - <a href="https://pay.wiapy.com/du7zZ5ks4EsE" style="color:#FFF;text-decoration:underline;">Garantir Agora &rarr;</a></span></div>
-  <script>
-    (function(){
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, '0');
-      var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-      var yyyy = today.getFullYear();
-      var dateStr = dd + '/' + mm + '/' + yyyy;
-      var el = document.getElementById('dynamic-date');
-      if(el) el.innerText = dateStr;
-    })();
-  </script>
-
-  <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="hero">
-    <div class="hero-glow"></div>
-    <div class="container">
-      <div class="hero-inner">
-
-        <div class="hero-text" data-aos="fade-right">
-          <div class="badge-pill">
-            <span class="badge-dot"></span>
-            Setembro Amarelo 2026
-          </div>
-
-          <h1 class="hero-title">
-            Super Kit<br/>
-            <span class="gradient-text">Setembro Amarelo</span><br/>
-            <span class="hero-sub-title">Pronto em minutos: é só imprimir,<br/>montar e encantar</span>
-          </h1>
-
-          <div class="star-rating">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="rating-text">4.9/5 &mdash; <strong>2.847 avaliações</strong></span>
-          </div>
-
-          <ul class="hero-bullets">
-            <li><span class="check">✅</span> Acesso imediato após a compra</li>
-            <li><span class="check">✅</span> Arquivos prontos para impressão</li>
-            <li><span class="check">✅</span> 9 kits completos + 4 bônus exclusivos</li>
-            <li><span class="check">✅</span> 7 dias de garantia incondicional</li>
-          </ul>
-
-
-
-          <!-- WYG + BONUS INLINE -->
-          <div class="wyg-block">
-            <p class="wyg-title">O que voce vai receber:</p>
-            <div class="wyg-list">
-              <div class="wyg-card"><img src="imagems/caixinhas-desabafo.jpg" alt="Caixinhas do Desabafo" loading="lazy" /><span>Caixinhas do Desabafo</span></div>
-              <div class="wyg-card"><img src="imagems/paineis-completos.jpg" alt="Paineis Completos" loading="lazy" /><span>Paineis Completos</span></div>
-              <div class="wyg-card"><img src="imagems/bambolees-tematicos.jpg" alt="Bambolees Tematicos" loading="lazy" /><span>Bambolees Tematicos</span></div>
-              <div class="wyg-card"><img src="imagems/lembrancinhas.jpg" alt="Lembrancinhas" loading="lazy" /><span>Lembrancinhas</span></div>
-              <div class="wyg-card"><img src="imagems/adesivos-exclusivos.jpg" alt="Adesivos Exclusivos" loading="lazy" /><span>Adesivos Exclusivos</span></div>
-              <div class="wyg-card"><img src="imagems/pronto-imprimir.jpg" alt="Pronto pra imprimir" loading="lazy" /><span>Pronto pra imprimir</span></div>
-            </div>
-          </div>
-
-          <div class="bonus-inline-block">
-            <span class="section-tag bonus-tag" style="font-size:0.72rem;padding:4px 10px;">Bonus Exclusivos</span>
-            <h3 class="bonus-inline-title">Bonus incriveis so HOJE! 🎁</h3>
-            <p class="bonus-inline-desc">Ganhe 4 kits extras sem pagar nada a mais.</p>
-            <div class="bonus-inline-grid">
-              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Ilustracoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Ilustracoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
-              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Publicacoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Publicacoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
-              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Cartoes.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Cartoes</h3><p class="bonus-free">100% GRATIS</p></div></div>
-              <div class="bonus-card"><div class="bonus-badge">BONUS</div><div class="bonus-img-wrap"><img src="https://meusuperkit.com/wp-content/uploads/2026/07/Camisas.png" loading="lazy" /></div><div class="bonus-info"><h3>Super Kit Camisas</h3><p class="bonus-free">100% GRATIS</p></div></div>
-            </div>
-            <p style="margin-top:10px;font-size:0.82rem;color:#aaa;">Valor total: <span class="strike">R$ 116,00</span> -> <strong class="free-tag">GRATIS!</strong></p>
-          </div>
-
-          <div class="hero-price-box">
-            <p class="price-from">de <span class="strike">R$ 97,90</span></p>
-            <div class="price-main">
-              <span class="price-currency">R$</span>
-              <span class="price-value">10</span>
-              <span class="price-cents">,00</span>
-            </div>
-            <p class="price-note">💳 Pagamento único — sem mensalidade</p>
-          </div>
-
-          <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse" id="hero-btn">
-            👉 QUERO MEU KIT AGORA!
-          </a>
-
-          <div class="urgency-box">
-            <div class="urgency-bar-wrap">
-              <div class="urgency-bar"></div>
-            </div>
-
-            <p class="urgency-text">🔥 <strong>92%</strong> das unidades já foram reservadas</p>
-          </div>
-
-          
-          <div class="plan-separator">
-            <div class="plan-separator-line"></div>
-            <p class="plan-separator-text">MAIS DE 90% DOS CLIENTES COMPRARAM ESTA OFERTA ABAIXO</p>
-            <div class="plan-separator-line"></div>
-          </div>
-
-          <div class="premium-plan-card">
-            <div class="premium-plan-badge">MAIS POPULAR — MELHOR CUSTO-BENEFÍCIO</div>
-            <div class="premium-plan-header">
-              <p class="premium-plan-label">Pack Premium Completo</p>
-              <div class="premium-plan-price">
-                <span class="premium-price-from">de R$ 97,90 por apenas</span><br/>
-                <span class="premium-price-currency">R$</span>
-                <span class="premium-price-value">19</span>
-                <span class="premium-price-cents">,90</span>
-              </div>
-              <p class="premium-plan-desc">Você leva TUDO — mais de 500 materiais exclusivos com acesso imediato!</p>
-            </div>
-            <ul class="premium-plan-list">
-              <li class="pitem-highlight"><span class="pcheck">✓</span> TUDO DO PLANO BÁSICO (kit completo de 10 reais)</li>
-              <li><span class="pcheck">✓</span> +500 materiais exclusivos no total</li>
-              <li><span class="pcheck">✓</span> Painéis e decorações completos</li>
-              <li><span class="pcheck">✓</span> Lembrancinhas criativas</li>
-              <li><span class="pcheck">✓</span> Cartões com mensagens</li>
-              <li><span class="pcheck">✓</span> Atividades e materiais educativos</li>
-              <li><span class="pcheck">✓</span> Ilustrações e elementos decorativos</li>
-              <li><span class="pcheck">✓</span> Cartazes e adesivos exclusivos</li>
-              <li><span class="pcheck">✓</span> Arquivos prontos para imprimir</li>
-              <li><span class="pcheck">✓</span> Muito mais variedade de materiais</li>
-            </ul>
-            <div class="premium-plan-cta-wrap">
-              <p class="premium-plan-savings">Você economiza R$ 78,00 hoje!</p>
-              <a href="https://pay.wiapy.com/S4QEYZgEBhze" class="btn-premium-plan pulse">
-                SIM! QUERO O PACK PREMIUM POR R$ 19,90
-              </a>
-              <p class="premium-plan-sub">Acesso imediato — pague uma vez, use para sempre</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="hero-carousel" data-aos="fade-left">
-          <div class="carousel-wrapper" id="heroCarousel">
-            <div class="carousel-track" id="carouselTrack">
-              <div class="carousel-slide">
-                <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Caixinhas.png" alt="Kit Caixinhas do Desabafo" loading="eager" />
-                <span class="slide-label">Caixinhas do Desabafo</span>
-              </div>
-              <div class="carousel-slide">
-                <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Paineis.png" alt="Kit Painéis Completos" loading="eager" />
-                <span class="slide-label">Painéis Completos</span>
-              </div>
-              <div class="carousel-slide">
-                <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Bamboles.png" alt="Kit Bambolês" loading="lazy" />
-                <span class="slide-label">Bambolês</span>
-              </div>
-              <div class="carousel-slide">
-                <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Lembrancinhas.png" alt="Kit Lembrancinhas" loading="lazy" />
-                <span class="slide-label">Lembrancinhas</span>
-              </div>
-              <div class="carousel-slide">
-                <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Adesivos.png" alt="Kit Adesivos" loading="lazy" />
-                <span class="slide-label">Adesivos</span>
-              </div>
-            </div>
-            <button class="carousel-btn prev" id="carouselPrev" aria-label="Slide anterior">&#8249;</button>
-            <button class="carousel-btn next" id="carouselNext" aria-label="Próximo slide">&#8250;</button>
-            <div class="carousel-dots" id="carouselDots"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== WHAT YOU GET ========== -->
-  <section class="kits-section" id="kits">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag">O que você recebe</span>
-        <h2 class="section-title">Temos tudo que você precisa 💛</h2>
-        <p class="section-desc">9 kits temáticos completos prontos para impressão — perfeitos para escolas, clínicas, empresas e eventos do Setembro Amarelo.</p>
-      </div>
-
-      <div class="kits-grid" data-aos="fade-up">
-        <div class="kit-item">
-          <div class="kit-icon">📦</div>
-          <span>Caixinhas do Desabafo</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🎴</div>
-          <span>Cartões com Frases</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🖼️</div>
-          <span>Painéis Completos</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🎁</div>
-          <span>Lembrancinhas</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🎨</div>
-          <span>Ilustrações</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">👕</div>
-          <span>Camisas</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">📱</div>
-          <span>Publicações</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🎡</div>
-          <span>Bambolês</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">📋</div>
-          <span>Cartaz A4</span>
-        </div>
-        <div class="kit-item">
-          <div class="kit-icon">🏷️</div>
-          <span>Adesivos</span>
-        </div>
-        <div class="kit-item kit-item-full">
-          <div class="kit-icon">✨</div>
-          <span>E muuuuito mais!</span>
-        </div>
-      </div>
-
-      <div class="text-center" data-aos="fade-up">
-        <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse" id="kits-btn">
-          👉 COMPRAR E RECEBER AGORA!
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== BONUS SECTION ========== -->
-  <section class="bonus-section" id="bonus">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag bonus-tag">Bônus Exclusivos</span>
-        <h2 class="section-title">Bônus incríveis só HOJE! 🎁</h2>
-        <p class="section-desc">Ganhe 4 kits extras sem pagar nada a mais. Oferta válida somente para compras realizadas hoje.</p>
-      </div>
-
-      <div class="bonus-grid" data-aos="fade-up">
-
-        <div class="bonus-card">
-          <div class="bonus-badge">BÔNUS</div>
-          <div class="bonus-img-wrap">
-            <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Ilustracoes.png" alt="Kit Ilustrações" loading="lazy" />
-          </div>
-          <div class="bonus-info">
-            <h3>Super Kit Ilustrações</h3>
-            <p class="bonus-old">de <span class="strike">R$ 29</span></p>
-            <p class="bonus-free">100% GRÁTIS</p>
-          </div>
-        </div>
-
-        <div class="bonus-card">
-          <div class="bonus-badge">BÔNUS</div>
-          <div class="bonus-img-wrap">
-            <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Publicacoes.png" alt="Kit Publicações" loading="lazy" />
-          </div>
-          <div class="bonus-info">
-            <h3>Super Kit Publicações</h3>
-            <p class="bonus-old">de <span class="strike">R$ 29</span></p>
-            <p class="bonus-free">100% GRÁTIS</p>
-          </div>
-        </div>
-
-        <div class="bonus-card">
-          <div class="bonus-badge">BÔNUS</div>
-          <div class="bonus-img-wrap">
-            <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Cartoes.png" alt="Kit Cartões" loading="lazy" />
-          </div>
-          <div class="bonus-info">
-            <h3>Super Kit Cartões com Frases</h3>
-            <p class="bonus-old">de <span class="strike">R$ 29</span></p>
-            <p class="bonus-free">100% GRÁTIS</p>
-          </div>
-        </div>
-
-        <div class="bonus-card">
-          <div class="bonus-badge">BÔNUS</div>
-          <div class="bonus-img-wrap">
-            <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Camisas.png" alt="Kit Camisas" loading="lazy" />
-          </div>
-          <div class="bonus-info">
-            <h3>Super Kit Camisas</h3>
-            <p class="bonus-old">de <span class="strike">R$ 29</span></p>
-            <p class="bonus-free">100% GRÁTIS</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="bonus-total-value" data-aos="fade-up">
-        <p>Valor total dos bônus: <span class="strike bonus-val">R$ 116,00</span> → <strong class="free-tag">GRÁTIS para você!</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SOCIAL PROOF ========== -->
-  <section class="proof-section" id="proof">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-tag proof-tag">Depoimentos reais</span>
-        <h2 class="section-title">As pessoas estão amando tudo! ❤️</h2>
-        <p class="section-desc">Mais de 2.847 famílias, professores e profissionais já transformaram seus eventos com nossos kits.</p>
-      </div>
-
-      <div class="proof-grid" data-aos="fade-up">
-        <div class="proof-img-wrap">
-          <img src="imagems/prova-social1.jpg" alt="Prova Social 1 — Clientes satisfeitos" loading="eager" decoding="async" width="1188" height="443" />
-        </div>
-        <div class="proof-img-wrap">
-          <img src="imagems/prova-social2.jpg" alt="Prova Social 2 — Clientes satisfeitos" loading="eager" decoding="async" width="1188" height="443" />
-        </div>
-        <div class="proof-img-wrap">
-          <img src="imagems/prova-social3.jpg" alt="Prova Social 3 — Clientes satisfeitos" loading="eager" decoding="async" width="1188" height="443" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== OFFER SECTION ========== -->
-  <section class="offer-section" id="offer">
-    <div class="offer-glow"></div>
-    <div class="container">
-      <div class="offer-card" data-aos="zoom-in">
-
-        <div class="offer-header-tag">🏆 OFERTA ESPECIAL</div>
-        <h2 class="offer-title">
-          ACESSO IMEDIATO COM<br/>
-          <span class="offer-highlight">MAIS DE 89% DE DESCONTO!</span>
-        </h2>
-
-        <div class="offer-checklist">
-          <div class="offer-check-item"><span class="green-check">✅</span> <strong>Completo</strong>: acesso a todos os Kits</div>
-          <div class="offer-check-item"><span class="green-check">✅</span> Todos os <strong>Bônus</strong> exclusivos</div>
-          <div class="offer-check-item"><span class="green-check">✅</span> <strong>07 Dias</strong> de Garantia Incondicional</div>
-          <div class="offer-check-item"><span class="green-check">✅</span> <strong>Desconto</strong> de 89% aplicado</div>
-        </div>
-
-        <div class="offer-divider">↓ HOJE COM DESCONTO ÚNICO ↓</div>
-
-        <div class="offer-pricing">
-          <div class="offer-original">
-            Valor Total: <span class="strike red-strike">R$ 97,90</span>
-          </div>
-          <div class="offer-price-row">
-            <span class="offer-currency">R$</span>
-            <span class="offer-value">10</span>
-            <span class="offer-cents">,00</span>
-          </div>
-          <p class="offer-sub">💳 Pagamento único — Acesso imediato</p>
-        </div>
-
-        <div class="scarcity-block">
-          <div class="scarcity-bar-outer">
-            <div class="scarcity-bar-inner" style="width:92%">
-              <span>92% — Unidades esgotando</span>
-            </div>
-          </div>
-          <p class="scarcity-text" id="cityCount">🔥 <span class="city-num">319</span> pessoas já garantiram o kit</p>
-        </div>
-
-        <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse big-cta" id="offer-btn">
-          👉 COMPRAR E RECEBER AGORA!
-        </a>
-
-        <p class="offer-note">APROVEITE AGORA: Você NÃO vai encontrar esse preço depois.</p>
-
-        <div class="secure-badges">
-          <img src="https://meusuperkit.com/wp-content/uploads/2026/01/selo.webp" alt="Compra Segura — Pagamento garantido" loading="lazy" class="secure-badge-img" />
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CAUSE SECTION ========== -->
-  <section class="cause-section" id="cause">
-    <div class="container">
-      <div class="cause-card" data-aos="fade-up">
-        <div class="cause-icon">💛</div>
-        <div class="cause-text">
-          <h2>Sua Compra Salva Vidas</h2>
-          <p><strong>100% DO VALOR SERÁ DOADO</strong> para iniciativas de saúde mental e prevenção ao suicídio. Ao comprar, você vai além de ter um kit incrível — você ajuda a salvar uma vida.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== GUARANTEE SECTION ========== -->
-  <section class="guarantee-section" id="garantia">
-    <div class="container">
-      <div class="guarantee-inner" data-aos="fade-up">
-        <div class="guarantee-img-wrap">
-          <img src="https://meusuperkit.com/wp-content/uploads/2026/01/garantia-7dias.webp" alt="Garantia Incondicional de 7 Dias" loading="lazy" />
-        </div>
-        <div class="guarantee-text">
-          <p class="guarantee-sub">Risco zero para você!</p>
-          <h2 class="guarantee-title">Garantia Incondicional!</h2>
-          <p class="guarantee-desc">Ainda não tem certeza? Não se preocupe. Se o conteúdo descrito acima não for o mesmo que você receber, você tem <strong>7 dias de garantia</strong> e devolverei seu dinheiro sem burocracia!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FINAL CTA ========== -->
-  <section class="final-cta" id="final-cta">
-    <div class="container">
-      <h2 data-aos="fade-up">Não perca essa oportunidade! 🚀</h2>
-      <p data-aos="fade-up">Setembro Amarelo está chegando — garanta seu kit agora com <strong>89% de desconto</strong>.</p>
-      <a href="https://pay.wiapy.com/du7zZ5ks4EsE" class="btn-cta pulse big-cta" id="final-btn" data-aos="fade-up">
-        👉 QUERO MEU KIT POR R$ 10,00!
-      </a>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container">
-      <p>Copyright © 2026 Meu Super Kit. Todos os direitos reservados.</p>
-      <p>
-        <a href="https://meusuperkit.com/politica-de-publicidade/">Política de Privacidade</a>
-        &nbsp;|&nbsp;
-        <a href="https://meusuperkit.com/termos-de-uso/">Termos de Uso</a>
-        &nbsp;|&nbsp;
-        <a href="mailto:suporte@meusuperkit.com">Suporte</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Script com defer: não bloqueia o HTML, executa após o parse -->
-  <script src="script.js" defer></script>
-
-
-
-
-<script>(function(){var d=new Date();var el=document.getElementById('dynamic-date');if(el)el.innerText=String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();})();</script>
-
-
-
-<!-- SALES NOTIFICATION -->
-<div class="sales-notification" id="sales-notification">
-  <div class="sn-icon">✓</div>
-  <div class="sn-content">
-    <p class="sn-title"><span id="sn-name">Ana</span> comprou o <strong id="sn-product">Pack Premium</strong></p>
-    <p class="sn-time" id="sn-time">Há 2 minutos</p>
-  </div>
+<!-- ===== prazo real: fim do Setembro Amarelo, 30/09.
+     A versao antiga escrevia "valida ate hoje" com a data de hoje via JS,
+     entao o prazo nunca chegava. Agora a conta e pro fim da campanha. ===== -->
+<div class="topbar">
+  Setembro Amarelo vai ate <b>30/09</b> —
+  <span class="contagem" id="dias-restantes">ainda da tempo de montar o seu</span>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const names = ["Ana", "Júlia", "Viviane", "Marcos", "Carla", "Beatriz", "Fernanda", "Renata", "Paula", "Camila", "Mariana", "Luiza", "Amanda", "Letícia"];
-  const products = ["Pack Premium", "Pack Premium", "Pack Premium", "Pack Básico", "Pack Premium", "Pack Básico"];
-  const times = ["Há 1 min", "Há 2 min", "Agora mesmo", "Há 3 min", "Há 5 min", "Há 4 min"];
-  
-  const notification = document.getElementById("sales-notification");
-  const nameEl = document.getElementById("sn-name");
-  const productEl = document.getElementById("sn-product");
-  const timeEl = document.getElementById("sn-time");
-  
-  function showNotification() {
-    const name = names[Math.floor(Math.random() * names.length)];
-    const product = products[Math.floor(Math.random() * products.length)];
-    const time = times[Math.floor(Math.random() * times.length)];
-    
-    nameEl.textContent = name;
-    productEl.textContent = product;
-    timeEl.textContent = time;
-    
-    notification.classList.add("show");
-    
-    setTimeout(function() {
-      notification.classList.remove("show");
-    }, 4500); // Fica 4.5s na tela
-  }
-  
-  setTimeout(function() {
-    showNotification();
-    // Frequência melhorada: aparece a cada 12 a 18 segundos
-    setInterval(function() {
-        showNotification();
-    }, Math.floor(Math.random() * 6000) + 12000); 
-  }, 2500); // Primeira vez aparece rápido (2.5s)
-});
-</script>
+<!-- ========================= HERO =========================
+     Ordem no celular = ordem do HTML: foto, titulo, fatos, preco, botao.
+     Nada de flex order — era o que quebrava antes. ===================== -->
+<section class="hero">
+  <div class="wrap hero-inner">
+
+    <div class="hero-foto">
+      <div class="cartaz">
+        <div class="carrossel">
+          <div class="trilha" id="trilha">
+            <div><img src="imagems/caixinhas-desabafo.jpg" width="760" height="760" alt="Caixinhas do desabafo montadas, com cartoes de mensagem" fetchpriority="high" /></div>
+            <div><img src="imagems/paineis-completos.jpg" width="760" height="760" alt="Painel de Setembro Amarelo montado, com laco, arvore de coracoes e totens" loading="lazy" /></div>
+            <div><img src="imagems/bambolees-tematicos.jpg" width="760" height="760" alt="Bamboles tematicos decorados para Setembro Amarelo" loading="lazy" /></div>
+            <div><img src="imagems/lembrancinhas.jpg" width="760" height="760" alt="Lembrancinhas de Setembro Amarelo prontas para entregar" loading="lazy" /></div>
+            <div><img src="imagems/adesivos-exclusivos.jpg" width="760" height="760" alt="Cartela de adesivos de Setembro Amarelo" loading="lazy" /></div>
+            <div><img src="imagems/pronto-imprimir.jpg" width="760" height="760" alt="Folhas do kit saindo prontas para impressao" loading="lazy" /></div>
+          </div>
+          <button class="seta seta-ant" id="ant" type="button" aria-label="Foto anterior">&#8249;</button>
+          <button class="seta seta-prox" id="prox" type="button" aria-label="Proxima foto">&#8250;</button>
+        </div>
+      </div>
+      <div class="bolinhas" id="bolinhas"></div>
+    </div>
+
+    <div class="hero-texto">
+      <p class="pilula pilula-coracao">Setembro Amarelo 2026</p>
+
+      <h1>Seu Setembro Amarelo <span class="marca">pronto pra imprimir</span></h1>
+
+      <p class="hero-linha">Paineis, caixinhas do desabafo, lembrancinhas, cartazes e adesivos ja desenhados. Voce baixa, imprime em folha A4 e monta — sem criar nada do zero.</p>
+
+      <div class="fatos">
+        <div class="fato"><b>9 kits</b><span>+ 4 bonus</span></div>
+        <div class="fato"><b>Na hora</b><span>acesso imediato</span></div>
+        <div class="fato"><b>Folha A4</b><span>impressora comum</span></div>
+        <div class="fato"><b>7 dias</b><span>de garantia</span></div>
+      </div>
+
+      <p id="prova-nota" hidden></p>
+
+      <div class="preco">
+        <span class="preco-valor">R$ 10<small>,00</small></span>
+        <span class="preco-de">de <span class="risco">R$ 97,90</span></span>
+        <span class="preco-cond">Pagamento unico, sem mensalidade. Pix ou cartao.</span>
+      </div>
+
+      <a class="btn" href="#planos" id="cta-hero">Quero meu kit por R$ 10,00</a>
+      <p class="btn-sub">Tem dois planos la embaixo: o kit de R$ 10,00 e o acervo completo. Voce escolhe.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== O QUE VEM NO KIT ===================== -->
+<section class="secao secao-branca" id="kit">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="pilula pilula-coracao">O que vem no kit</p>
+      <h2>Tudo desenhado, tudo pronto pra sair na impressora</h2>
+      <p>Serve pra escola, clinica, empresa, igreja ou posto de saude. E o mesmo material que voce ve nas fotos — nada de mockup bonito e arquivo diferente.</p>
+    </div>
+
+    <div class="folhas">
+      <div class="folha-item"><img src="imagems/caixinhas-desabafo.jpg" width="760" height="760" alt="Caixinhas do desabafo" loading="lazy" /><span>Caixinhas do desabafo</span></div>
+      <div class="folha-item"><img src="imagems/paineis-completos.jpg" width="760" height="760" alt="Paineis completos" loading="lazy" /><span>Paineis completos</span></div>
+      <div class="folha-item"><img src="imagems/bambolees-tematicos.jpg" width="760" height="760" alt="Bamboles tematicos" loading="lazy" /><span>Bamboles tematicos</span></div>
+      <div class="folha-item"><img src="imagems/lembrancinhas.jpg" width="760" height="760" alt="Lembrancinhas" loading="lazy" /><span>Lembrancinhas</span></div>
+      <div class="folha-item"><img src="imagems/adesivos-exclusivos.jpg" width="760" height="760" alt="Adesivos exclusivos" loading="lazy" /><span>Adesivos exclusivos</span></div>
+      <div class="folha-item"><img src="imagems/pronto-imprimir.jpg" width="760" height="760" alt="Arquivos prontos pra imprimir" loading="lazy" /><span>Tudo pronto pra imprimir</span></div>
+    </div>
+
+    <ul class="kits" style="margin-top:1.75rem">
+      <li>Caixinhas do desabafo</li>
+      <li>Cartoes com frases</li>
+      <li>Paineis completos</li>
+      <li>Lembrancinhas</li>
+      <li>Ilustracoes</li>
+      <li>Estampas de camisa</li>
+      <li>Publicacoes pra redes</li>
+      <li>Bamboles</li>
+      <li>Cartaz A4</li>
+      <li>Adesivos</li>
+      <li>Atividades pra imprimir</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== COMO USAR =====================
+     Numeracao aqui vale a pena porque e sequencia de verdade. -->
+<section class="secao">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="pilula pilula-coracao">Como funciona</p>
+      <h2>Da compra ao mural montado em uma tarde</h2>
+    </div>
+    <div class="passos">
+      <div class="passo">
+        <div>
+          <h3>Baixa</h3>
+          <p>O link chega no seu e-mail assim que o pagamento cai. Nao tem espera nem envio pelo correio.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h3>Imprime</h3>
+          <p>Folha A4 na impressora da escola ou da papelaria da esquina. Nao precisa abrir editor nem saber design.</p>
+        </div>
+      </div>
+      <div class="passo">
+        <div>
+          <h3>Monta</h3>
+          <p>Corta, cola e fixa. Painel, caixinha e lembrancinha ficam prontos com tesoura, cola e fita.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BONUS ===================== -->
+<section class="secao secao-fita" id="bonus">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="pilula pilula-coracao">Vao junto, sem custo</p>
+      <h2>4 kits extras inclusos no mesmo preco</h2>
+      <p>Entram no pacote automaticamente. Voce nao precisa pedir nem pagar a parte.</p>
+    </div>
+    <div class="bonus">
+      <div class="bonus-item">
+        <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Ilustracoes.png" width="600" height="600" alt="Kit de ilustracoes" loading="lazy" />
+        <h3>Ilustracoes</h3><p>Incluso</p>
+      </div>
+      <div class="bonus-item">
+        <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Publicacoes.png" width="600" height="600" alt="Kit de publicacoes para redes sociais" loading="lazy" />
+        <h3>Publicacoes</h3><p>Incluso</p>
+      </div>
+      <div class="bonus-item">
+        <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Cartoes.png" width="600" height="600" alt="Kit de cartoes com frases" loading="lazy" />
+        <h3>Cartoes com frases</h3><p>Incluso</p>
+      </div>
+      <div class="bonus-item">
+        <img src="https://meusuperkit.com/wp-content/uploads/2026/07/Camisas.png" width="600" height="600" alt="Kit de estampas para camisa" loading="lazy" />
+        <h3>Estampas de camisa</h3><p>Incluso</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVA SOCIAL =====================
+     Estas 3 imagens existem desde sempre em images/, mas o HTML antigo
+     pedia imagems/ (com m). Resultado: a secao inteira nao carregava. -->
+<section class="secao secao-branca" id="depoimentos">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="pilula pilula-coracao">Quem ja usou</p>
+      <h2>Conversas de quem montou o kit</h2>
+    </div>
+    <div class="provas">
+      <img src="images/prova-social1.jpg" width="1040" height="450" alt="Mensagens de clientes elogiando o kit" loading="lazy" />
+      <img src="images/prova-social2.jpg" width="1040" height="449" alt="Mensagens de clientes elogiando o kit" loading="lazy" />
+      <img src="images/prova-social3.jpg" width="1040" height="458" alt="Mensagens de clientes elogiando o kit" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GARANTIA ===================== -->
+<section class="secao">
+  <div class="wrap">
+    <div class="garantia">
+      <div class="garantia-selo">7<br />dias</div>
+      <div>
+        <h3>Se nao for o que voce viu aqui, eu devolvo</h3>
+        <p>Voce tem 7 dias pra abrir os arquivos com calma. Se o conteudo nao for o que esta descrito nesta pagina, e so pedir: devolvo o valor integral, sem formulario e sem pergunta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLANOS =====================
+     O botao do hero cai aqui em vez de ir direto pro checkout: a pessoa
+     ve os dois precos no mesmo lugar e escolhe. O premium saiu do hero
+     porque la ele obrigava o visitante a decidir duas coisas antes de
+     decidir uma; aqui embaixo ele chega em quem ja quer comprar.
+     Basico em cima, premium logo abaixo — de proposito NAO e tabela
+     simetrica de plano: e uma oferta e o upgrade dela, entao os dois
+     cartoes sao desenhados diferentes. -->
+<section class="secao secao-branca" id="planos">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="pilula pilula-coracao">Escolha como quer levar</p>
+      <h2>Os dois planos, os dois com acesso na hora</h2>
+      <p>Pagamento unico e 7 dias de garantia nos dois. A diferenca e o tamanho do acervo que vem com voce.</p>
+    </div>
+
+    <div class="planos">
+
+      <div class="plano">
+        <p class="plano-topo">Pra montar a acao deste mes</p>
+        <div class="plano-corpo">
+          <h3>Kit Completo</h3>
+          <p class="plano-linha">Os 9 kits de Setembro Amarelo mais os 4 bonus, no mesmo acesso.</p>
+
+          <div class="preco">
+            <span class="preco-valor">R$ 10<small>,00</small></span>
+            <span class="preco-de">de <span class="risco">R$ 97,90</span></span>
+            <span class="preco-cond">Pagamento unico, sem mensalidade. Pix ou cartao.</span>
+          </div>
+
+          <ul class="plano-lista">
+            <li>Paineis completos, caixinhas do desabafo e bamboles</li>
+            <li>Lembrancinhas, cartazes, adesivos e cartoes com frases</li>
+            <li>Atividades pra imprimir e estampas de camisa</li>
+            <li>Os 4 kits bonus inclusos, sem pagar a parte</li>
+            <li>Arquivos em A4 pra impressora comum</li>
+          </ul>
+
+          <a class="btn" href="https://pay.wiapy.com/du7zZ5ks4EsE" id="cta-basico">Quero o Kit Completo por R$ 10,00</a>
+          <p class="btn-sub">Acesso no e-mail assim que o pagamento cair.</p>
+        </div>
+
+        <!-- Ponte pro premium. Mora no pe do cartao de R$ 10 porque e ali que
+             a pessoa esta decidindo. E clicavel de proposito: no celular o
+             cartao de baixo comeca fora da tela, entao as setas precisam
+             levar de verdade. A conta que ela mostra (19,90 - 10,00 = 9,90)
+             confere com os dois precos que estao na propria tela. -->
+        <a class="ponte" href="#pack-premium" id="ponte-premium">
+          <b>Por R$ 9,90 a mais voce leva +500 materiais, nao so os 9 kits</b>
+          <span class="ponte-setas" aria-hidden="true">&#8595;&#8595;</span>
+        </a>
+      </div>
+
+      <div class="premium" id="pack-premium">
+        <p class="premium-topo">Quem quer tudo de uma vez leva este</p>
+        <div class="premium-corpo">
+          <h3>Pack Premium</h3>
+          <p><b class="premium-numero">+500 materiais</b> no mesmo acesso: tudo do plano de cima mais o acervo inteiro.</p>
+
+          <div class="preco">
+            <span class="preco-valor">R$ 19<small>,90</small></span>
+            <span class="preco-de">somando separado: <span class="risco">R$ 137,90</span></span>
+            <span class="preco-cond">Pagamento unico. So R$ 9,90 acima do plano de cima.</span>
+          </div>
+
+          <ul class="premium-lista">
+            <li class="destaque">Tudo que tem no Kit Completo de R$ 10,00</li>
+            <li>Paineis e decoracoes em mais tamanhos</li>
+            <li>Mais modelos de lembrancinha e cartao</li>
+            <li>Atividades e material educativo</li>
+            <li>Cartazes e adesivos extras</li>
+            <li>Todos os arquivos prontos pra imprimir</li>
+          </ul>
+
+          <a class="btn" href="https://pay.wiapy.com/S4QEYZgEBhze" id="cta-premium">Quero o Pack Premium por R$ 19,90</a>
+          <p class="btn-sub">Mesmo acesso imediato e a mesma garantia de 7 dias.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FECHAMENTO ===================== -->
+<section class="secao secao-fita">
+  <div class="wrap fecho">
+    <h2>Setembro nao espera</h2>
+    <p class="contagem" id="fecho-dias">Da tempo de imprimir e montar antes do fim da campanha.</p>
+    <a class="btn" href="https://pay.wiapy.com/du7zZ5ks4EsE" id="cta-final">Quero meu kit por R$ 10,00</a>
+    <p class="btn-sub">Acesso imediato &middot; 7 dias de garantia &middot; pagamento unico</p>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p>Meu Super Kit &copy; 2026</p>
+    <p>
+      <a href="https://meusuperkit.com/politica-de-publicidade/">Politica de privacidade</a> &nbsp;·&nbsp;
+      <a href="https://meusuperkit.com/termos-de-uso/">Termos de uso</a> &nbsp;·&nbsp;
+      <a href="mailto:suporte@meusuperkit.com">suporte@meusuperkit.com</a>
+    </p>
+    <p style="max-width:52ch;margin:.9rem auto 0">Material de apoio pra acoes de conscientizacao. Nao substitui atendimento profissional. Em crise, o CVV atende no 188, 24h, ligacao gratuita.</p>
+  </div>
+</footer>
+
+<!-- Barra de compra que acompanha o celular. Aponta pra #planos, igual o
+     botao do hero — se ela fosse direto pro checkout, quem clica nela nunca
+     veria o premium. Ela some sozinha quando a secao de planos esta na tela. -->
+<div class="barra-fixa" id="barra-fixa">
+  <div class="barra-fixa-preco">Kit completo<b>R$ 10,00</b></div>
+  <a class="btn" href="#planos" id="cta-barra">Quero o meu</a>
+</div>
+
+<script src="script.js" defer></script>
+
+
+
+
+
 </body>
-
-
 </html>
