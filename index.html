@@ -104,6 +104,133 @@
     .bonus-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
+<style>
+  .premium-plan-card {
+    margin-top: 16px;
+    background: linear-gradient(135deg, #1a1200 0%, #2a1e00 100%);
+    border: 2px solid #F5C518;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+  }
+  .plan-separator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0 10px;
+  }
+  .plan-separator-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(245,197,24,0.3);
+  }
+  .plan-separator-text {
+    color: #F5C518;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .premium-plan-badge {
+    background: linear-gradient(90deg, #E99413, #F5C518, #E99413);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 8px 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .premium-plan-header {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid rgba(245,197,24,0.2);
+  }
+  .premium-plan-label {
+    color: #F5C518;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .premium-plan-price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+  .premium-price-currency { color: #F5C518; font-size: 1rem; font-weight: 800; line-height: 1.9; }
+  .premium-price-value { color: #F5C518; font-size: 2.8rem; font-weight: 900; line-height: 1; font-family: 'Outfit', sans-serif; }
+  .premium-price-cents { color: #F5C518; font-size: 1.2rem; font-weight: 800; line-height: 1.6; }
+  .premium-plan-desc { color: #aaa; font-size: 0.78rem; line-height: 1.3; }
+  .premium-plan-list {
+    list-style: none;
+    padding: 10px 16px;
+    margin: 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(245,197,24,0.15);
+  }
+  .premium-plan-list li {
+    color: #ddd;
+    font-size: 0.82rem;
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .premium-plan-list li:last-child { border-bottom: none; }
+  .pcheck { color: #F5C518; font-weight: 900; font-size: 0.85rem; flex-shrink: 0; }
+  .premium-price-from {
+    color: #888;
+    font-size: 0.72rem;
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .pitem-highlight {
+    background: rgba(245,197,24,0.1);
+    border-radius: 6px;
+    padding: 6px 8px !important;
+    font-weight: 700 !important;
+    color: #F5C518 !important;
+    border-bottom: none !important;
+    margin-bottom: 4px;
+  }
+  .premium-plan-cta-wrap {
+    padding: 12px 14px 16px;
+  }
+  .premium-plan-savings {
+    color: #4CAF50;
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+  }
+  .premium-plan-sub {
+    color: #888;
+    font-size: 0.7rem;
+    margin-top: 8px;
+    line-height: 1.3;
+  }
+  .btn-premium-plan {
+    display: block;
+    margin: 12px 14px 14px;
+    background: linear-gradient(135deg, #F5C518 0%, #E99413 100%);
+    color: #000;
+    font-size: 0.88rem;
+    font-weight: 900;
+    padding: 14px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    line-height: 1.3;
+    box-shadow: 0 4px 14px rgba(245,197,24,0.35);
+  }
+</style>
 </head>
 
 
@@ -199,8 +326,50 @@
             <div class="urgency-bar-wrap">
               <div class="urgency-bar"></div>
             </div>
+
             <p class="urgency-text">🔥 <strong>92%</strong> das unidades já foram reservadas</p>
           </div>
+
+          
+          <div class="plan-separator">
+            <div class="plan-separator-line"></div>
+            <p class="plan-separator-text">MAIS DE 90% DOS CLIENTES COMPRARAM ESTA OFERTA ABAIXO</p>
+            <div class="plan-separator-line"></div>
+          </div>
+
+          <div class="premium-plan-card">
+            <div class="premium-plan-badge">MAIS POPULAR — MELHOR CUSTO-BENEFÍCIO</div>
+            <div class="premium-plan-header">
+              <p class="premium-plan-label">Pack Premium Completo</p>
+              <div class="premium-plan-price">
+                <span class="premium-price-from">de R$ 97,90 por apenas</span><br/>
+                <span class="premium-price-currency">R$</span>
+                <span class="premium-price-value">19</span>
+                <span class="premium-price-cents">,90</span>
+              </div>
+              <p class="premium-plan-desc">Você leva TUDO — mais de 500 materiais exclusivos com acesso imediato!</p>
+            </div>
+            <ul class="premium-plan-list">
+              <li class="pitem-highlight"><span class="pcheck">✓</span> TUDO DO PLANO BÁSICO (kit completo de 10 reais)</li>
+              <li><span class="pcheck">✓</span> +500 materiais exclusivos no total</li>
+              <li><span class="pcheck">✓</span> Painéis e decorações completos</li>
+              <li><span class="pcheck">✓</span> Lembrancinhas criativas</li>
+              <li><span class="pcheck">✓</span> Cartões com mensagens</li>
+              <li><span class="pcheck">✓</span> Atividades e materiais educativos</li>
+              <li><span class="pcheck">✓</span> Ilustrações e elementos decorativos</li>
+              <li><span class="pcheck">✓</span> Cartazes e adesivos exclusivos</li>
+              <li><span class="pcheck">✓</span> Arquivos prontos para imprimir</li>
+              <li><span class="pcheck">✓</span> Muito mais variedade de materiais</li>
+            </ul>
+            <div class="premium-plan-cta-wrap">
+              <p class="premium-plan-savings">Você economiza R$ 78,00 hoje!</p>
+              <a href="https://pay.wiapy.com/S4QEYZgEBhze" class="btn-premium-plan pulse">
+                SIM! QUERO O PACK PREMIUM POR R$ 19,90
+              </a>
+              <p class="premium-plan-sub">Acesso imediato — pague uma vez, use para sempre</p>
+            </div>
+          </div>
+
         </div>
 
         <div class="hero-carousel" data-aos="fade-left">
